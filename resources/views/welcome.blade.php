@@ -6,7 +6,8 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>SKSU TPT</title>
+
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
@@ -233,13 +234,13 @@
                         </div>
 
                     </div>
-                    <div class="mt-16 flex justify-center">
-                        <div class="grid justify-center space-y-3  border p-6 rounded-md shadow-md">
-                            <h1 class="text-center text-lg text-gray-600">
+                    <div class="flex justify-center mt-16">
+                        <div class="grid justify-center p-6 space-y-3 border rounded-md shadow-md">
+                            <h1 class="text-lg text-center text-gray-600">
                                 Recommended Browsers
                             </h1>
-                            <div class="flex space-x-2 justify-center items-center text-gray-600">
-                                <ul class="list-disc text-left">
+                            <div class="flex items-center justify-center space-x-2 text-gray-600">
+                                <ul class="text-left list-disc">
                                     <li>
                                         Google Chrome
                                     </li>

@@ -12,7 +12,7 @@
                     wire:loading.class="animate-spin"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
-                    class="fill-green-500 h-6 w-6">
+                    class="w-6 h-6 fill-green-500">
                     <path fill="none"
                         d="M0 0h24v24H0z" />
                     <path
@@ -21,16 +21,19 @@
             </div>
         </x-slot>
         <div class="mb-3">
-            <div class="p-2 rounded-md border border-green-500">
+            <div class="p-2 border border-green-500 rounded-md">
                 <ul>
                     <li class="text-gray-600">Total Amount to Pay : <span class="font-semibold">&#8369;
                             {{ $paymentDetails->amount_payable }}</span></li>
                 </ul>
             </div>
         </div>
-        <form class="  lg:px-0 lg:row-start-1 lg:col-start-1">
+        <form class=" lg:px-0 lg:row-start-1 lg:col-start-1">
             @csrf
-            <x-button positive>
+            <x-button
+                href="https://epaymentportal.landbank.com/pay1.php?code=S05EUEtVSGltb2t0emdaNmwyRFV5aG1pVVYzNHdTRXByL2ZoNHZjS1pZRT0="
+                target="_blank"
+                positive>
                 Pay with LinkBiz
             </x-button>
             <div class="mt-3">
@@ -47,7 +50,7 @@
                         <div class="container grid grid-cols-3 gap-2 mx-auto">
                             @foreach ($proof_of_payments as $key => $image)
                                 <div wire:key="proof-{{ $key }}-adadq2922"
-                                    class="rounded border">
+                                    class="border rounded">
                                     <img class="h-40"
                                         src="{{ $image->temporaryUrl() }}"
                                         alt="image">
@@ -58,10 +61,10 @@
                 </div>
                 <div wire:loading
                     wire:target="proof_of_payments">
-                    <div class="flex justify-center items-center space-x-3">
+                    <div class="flex items-center justify-center space-x-3">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
-                            class="animate-spin h-10 w-10 fill-gray-500">
+                            class="w-10 h-10 animate-spin fill-gray-500">
                             <path fill="none"
                                 d="M0 0h24v24H0z" />
                             <path
