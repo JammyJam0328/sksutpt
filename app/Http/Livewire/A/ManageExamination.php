@@ -90,13 +90,13 @@ class ManageExamination extends Component
         {
            Grouping::create([
                 'examination_test_center_id'=>$access_campus->id,
-                'day_time'=>'AM',
+                'day_time'=>'AM 7:00 - 12:00',
                 'room'=>'Room '.$i,
                 'slots'=>25,
             ]);
             Grouping::create([
                 'examination_test_center_id'=>$access_campus->id,
-                'day_time'=>'PM',
+                'day_time'=>'PM 12:30 - 6:00',
                 'room'=>'Room '.$i,
                 'slots'=>25,
             ]);
@@ -110,13 +110,13 @@ class ManageExamination extends Component
         {
            Grouping::create([
                 'examination_test_center_id'=>$isulan_campus->id,
-                'day_time'=>'AM',
+                'day_time'=>'AM 7:00 - 12:00',
                 'room'=>'Room '.$i,
                 'slots'=>25,
             ]);
             Grouping::create([
                 'examination_test_center_id'=>$isulan_campus->id,
-                'day_time'=>'PM',
+                'day_time'=>'PM 12:30 - 6:00',
                 'room'=>'Room '.$i,
                 'slots'=>25,
             ]);
@@ -130,13 +130,13 @@ class ManageExamination extends Component
         {
            Grouping::create([
                 'examination_test_center_id'=>$tacurong_campus->id,
-                'day_time'=>'AM',
+                'day_time'=>'AM 7:00 - 12:00',
                 'room'=>'Room '.$i,
                 'slots'=>25,
             ]);
             Grouping::create([
                 'examination_test_center_id'=>$tacurong_campus->id,
-                'day_time'=>'PM',
+                'day_time'=>'PM 12:30 - 6:00',
                 'room'=>'Room '.$i,
                 'slots'=>25,
             ]);
@@ -150,13 +150,13 @@ class ManageExamination extends Component
         {
            Grouping::create([
                 'examination_test_center_id'=>$bagumbayan_campus->id,
-                'day_time'=>'AM',
+                'day_time'=>'AM 7:00 - 12:00',
                 'room'=>'Room '.$i,
                 'slots'=>25,
             ]);
             Grouping::create([
                 'examination_test_center_id'=>$bagumbayan_campus->id,
-                'day_time'=>'PM',
+                'day_time'=>'PM 12:30 - 6:00',
                 'room'=>'Room '.$i,
                 'slots'=>25,
             ]);
@@ -170,13 +170,13 @@ class ManageExamination extends Component
         {
            Grouping::create([
                 'examination_test_center_id'=>$kalamansig_campus->id,
-                'day_time'=>'AM',
+                'day_time'=>'AM 7:00 - 12:00',
                 'room'=>'Room '.$i,
                 'slots'=>25,
             ]);
             Grouping::create([
                 'examination_test_center_id'=>$kalamansig_campus->id,
-                'day_time'=>'PM',
+                'day_time'=>'PM 12:30 - 6:00',
                 'room'=>'Room '.$i,
                 'slots'=>25,
             ]);
@@ -190,7 +190,7 @@ class ManageExamination extends Component
         {
            Grouping::create([
                 'examination_test_center_id'=>$palimbang_campus->id,
-                'day_time'=>'AM',
+                'day_time'=>'AM 7:00 - 12:00',
                 'room'=>'Room '.$i,
                 'slots'=>25,
             ]);
@@ -204,7 +204,7 @@ class ManageExamination extends Component
         {
            Grouping::create([
                 'examination_test_center_id'=>$lutayan_campus->id,
-                'day_time'=>'AM',
+                'day_time'=>'AM 7:00 - 12:00',
                 'room'=>'Room '.$i,
                 'slots'=>25,
             ]);

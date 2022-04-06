@@ -37,6 +37,7 @@ return new class extends Migration
             $table->string('last_school_attended')->nullable();
             $table->string('school_year_last_attended')->nullable();
             $table->string('photo')->nullable();
+            $table->string('hd_or_good_moral')->nullable();
             $table->string('sex')->nullable();
             $table->timestamps();
         });

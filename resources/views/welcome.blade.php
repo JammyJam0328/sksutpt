@@ -86,7 +86,7 @@
                                     <img src="{{ asset('image/sksu1.png') }}"
                                         class="w-16 h-16"
                                         alt="...">
-                                    <h1 class="text-3xl font-bold text-green-600">SKSU PAS</h1>
+                                    <h1 class="text-3xl font-bold text-green-600">SKSU TPT</h1>
                                 </div>
                                 <div class="flex items-center -mr-2 md:hidden">
                                     <button x-on:click="mobileNav=true"
@@ -94,7 +94,6 @@
                                         class="inline-flex items-center justify-center p-2 text-gray-400 rounded-md bg-gray-50 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500"
                                         aria-expanded="false">
                                         <span class="sr-only">Open main menu</span>
-                                        <!-- Heroicon name: outline/menu -->
                                         <svg class="w-6 h-6"
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
@@ -117,31 +116,31 @@
                             <a href="#"
                                 class="font-medium text-gray-500 hover:text-gray-900">About</a>
 
-                            <a href="#"
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=sksutpt2022@gmail.com"
+                                target="_blank"
                                 class="font-medium text-gray-500 hover:text-gray-900">Email Us</a>
-
                         </div>
                         <div
                             class="hidden space-x-2 md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
                             @guest
-                                <span class="inline-flex rounded-md shadow">
-                                    <a href="{{ route('login') }}"
-                                        class="inline-flex items-center px-4 py-2 text-base font-medium text-green-600 bg-white border border-transparent rounded-md hover:bg-gray-50">
-                                        Log in </a>
-                                </span>
-                                <span class="inline-flex rounded-md shadow">
-                                    <a href="{{ route('register') }}"
-                                        class="inline-flex items-center px-4 py-2 text-base font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700">
-                                        Register </a>
-                                </span>
+                            <span class="inline-flex rounded-md shadow">
+                                <a href="{{ route('login') }}"
+                                    class="inline-flex items-center px-4 py-2 text-base font-medium text-green-600 bg-white border border-transparent rounded-md hover:bg-gray-50">
+                                    Log in </a>
+                            </span>
+                            <span class="inline-flex rounded-md shadow">
+                                <a href="{{ route('register') }}"
+                                    class="inline-flex items-center px-4 py-2 text-base font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700">
+                                    Register </a>
+                            </span>
                             @endguest
                             @auth
-                                <span class="inline-flex rounded-md shadow">
-                                    <a href="{{ route('dashboard') }}"
-                                        class="inline-flex items-center px-4 py-2 text-base font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700">
-                                        Dashboard
-                                    </a>
-                                </span>
+                            <span class="inline-flex rounded-md shadow">
+                                <a href="{{ route('dashboard') }}"
+                                    class="inline-flex items-center px-4 py-2 text-base font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700">
+                                    Dashboard
+                                </a>
+                            </span>
                             @endauth
                         </div>
                     </nav>
@@ -162,7 +161,7 @@
                                 <img src="{{ asset('image/sksu1.png') }}"
                                     class="w-12 h-12"
                                     alt="...">
-                                <h1 class="text-3xl font-bold text-green-600">SKSU PAS</h1>
+                                <h1 class="text-3xl font-bold text-green-600">SKSU TPT</h1>
                             </div>
                             <div class="-mr-2">
                                 <button x-on:click="mobileNav=false"
@@ -196,17 +195,17 @@
                                 Us</a>
                         </div>
                         @guest
-                            <a href="{{ route('login') }}"
-                                class="block w-full px-5 py-3 font-medium text-center text-green-600 bg-gray-50 hover:bg-gray-100">
-                                Log in </a>
-                            <a href="{{ route('register') }}"
-                                class="block w-full px-5 py-3 font-medium text-center bg-green-600 text-gray-50 hover:bg-green-700">
-                                Register </a>
+                        <a href="{{ route('login') }}"
+                            class="block w-full px-5 py-3 font-medium text-center text-green-600 bg-gray-50 hover:bg-gray-100">
+                            Log in </a>
+                        <a href="{{ route('register') }}"
+                            class="block w-full px-5 py-3 font-medium text-center bg-green-600 text-gray-50 hover:bg-green-700">
+                            Register </a>
                         @endguest
                         @auth
-                            <a href="{{ route('dashboard') }}"
-                                class="block w-full px-5 py-3 font-medium text-center bg-green-600 text-gray-50 hover:bg-green-700">
-                                Dashboard </a>
+                        <a href="{{ route('dashboard') }}"
+                            class="block w-full px-5 py-3 font-medium text-center bg-green-600 text-gray-50 hover:bg-green-700">
+                            Dashboard </a>
                         @endauth
                     </div>
                 </div>
@@ -220,12 +219,12 @@
                     </h1>
                     <p class="max-w-md mx-auto mt-3 text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
                         Province of Sultan Kudarat, 9800, City of Tacurong, Philippines
-                        Search for: </p>
+                    </p>
                     <div class="max-w-md mx-auto mt-5 sm:flex sm:justify-center md:mt-8">
                         <div class="rounded-md shadow ">
                             <a href="#"
                                 class="flex items-center justify-center w-full px-8 py-3 text-base font-medium text-green-600 bg-white border border-transparent rounded-md hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
-                                Screen Cast </a>
+                                Tutorials </a>
                         </div>
                         <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 ">
                             <a href="#"
@@ -234,29 +233,7 @@
                         </div>
 
                     </div>
-                    <div class="flex justify-center mt-16">
-                        <div class="grid justify-center p-6 space-y-3 border rounded-md shadow-md">
-                            <h1 class="text-lg text-center text-gray-600">
-                                Recommended Browsers
-                            </h1>
-                            <div class="flex items-center justify-center space-x-2 text-gray-600">
-                                <ul class="text-left list-disc">
-                                    <li>
-                                        Google Chrome
-                                    </li>
-                                    <li>
-                                        Mozilla Firefox
-                                    </li>
-                                    <li>
-                                        Microsoft Edge
-                                    </li>
-                                    <li>
-                                        Brave Browser
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </main>
         </div>

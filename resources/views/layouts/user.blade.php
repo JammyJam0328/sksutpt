@@ -32,13 +32,25 @@
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}"
         defer></script>
+    <style>
+        @media print {
+            .noprint {
+                display: none;
+            }
+
+            body {
+                margin: 0;
+            }
+        }
+
+    </style>
 </head>
 
 <body x-data="{ mnIsOpen: false }"
     class="relative h-full bg-white font-poppins">
 
     <div class="min-h-full">
-        <nav class="sticky top-0 z-50 bg-green-600 shadow">
+        <nav class="sticky top-0 z-50 bg-green-600 shadow noprint">
             <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16">
                     <div class="flex items-center">

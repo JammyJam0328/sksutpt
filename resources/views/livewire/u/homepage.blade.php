@@ -440,9 +440,8 @@
                     </svg>
                 </div>
                 <div class="mx-auto text-center">
-                    <h1 class="text-xl font-semibold text-gray-600">First</h1>
                     <div class="flex items-center justify-center space-x-2">
-                        <h1 class="text-xl font-semibold text-gray-600">Tell us what are you </h1>
+                        <h1 class="text-xl font-semibold text-gray-600">Select Category</h1>
                         @if ($selected_type)
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 class="w-5 h-5 text-green-600"
@@ -457,9 +456,11 @@
                     <div class="flex justify-center mt-2">
                         <form>
                             @csrf
-                            <x-select placeholder="Select Applicant Type"
-                                :options="['Freshmen', 'Transferee']"
-                                wire:model="selected_type" />
+                            <x-native-select wire:model="selected_type">
+                                <option value="">-Select--</option>
+                                <option value="Freshmen">Incoming first year college</option>
+                                <option value="Transferee">Transferee</option>
+                            </x-native-select>
                             <div class="mt-3">
                                 @if ($selected_type != '')
                                     <x-button positive

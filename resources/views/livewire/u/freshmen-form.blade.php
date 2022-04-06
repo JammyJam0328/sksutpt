@@ -1,4 +1,4 @@
-<x-card title="Freshemen Application">
+<x-card title="Incoming first year college Application">
     <form class="bg-white">
         <div class="fixed z-50 top-24 right-1">
             <svg wire:loading
@@ -101,13 +101,13 @@
                             wire:model.lazy="extension" />
                     </div>
                     <div class="sm:col-span-6">
-                        <x-input label="Preset Address"
-                            placeholder="Preset Address"
+                        <x-input label="Present Address"
+                            placeholder="Present Address"
                             wire:model.lazy="present_address" />
                     </div>
                     <div class="sm:col-span-6">
-                        <x-input label="Permanent Address"
-                            placeholder="Permanent Address"
+                        <x-input label="Permanent address/Provincial address"
+                            placeholder="Permanent address/Provincial address"
                             wire:model.lazy="permanent_address" />
                     </div>
                     <div class="sm:col-span-2">
@@ -134,22 +134,17 @@
                             placeholder="Place of Birth"
                             wire:model.lazy="place_of_birth" />
                     </div>
-                    <div class="sm:col-span-2">
+                    <div class="sm:col-span-3">
                         <x-input label="Nationality"
                             placeholder="Nationality"
                             wire:model.lazy="nationality" />
                     </div>
-                    <div class="sm:col-span-2">
-                        <x-input label="Citizenship"
-                            placeholder="Citizenship"
-                            wire:model.lazy="citizenship" />
-                    </div>
-                    <div class="sm:col-span-2">
+                    <div class="sm:col-span-3">
                         <x-native-select label="Civil Status"
                             wire:model.lazy="civil_status">
                             <option value="">Select</option>
                             <option value="Single">Single</option>
-                            <option value="Maried">Maried</option>
+                            <option value="Married">Married</option>
                             <option value="Widowed">Widowed</option>
                             <option value="Separated">Separated</option>
                         </x-native-select>
@@ -241,7 +236,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <x-input label="Upload Photo"
+                        <x-input label="Upload Actual photo"
                             type="file"
                             placeholder="Upload Photo"
                             wire:model.debounce.500ms="photo" />
@@ -270,7 +265,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <x-input label="Scanned Copy of Your SHS First semester GPA"
+                        <x-input label="Scanned copy of SHS first semester report card"
                             type="file"
                             placeholder="Upload"
                             wire:model.debounce.500ms="copy_of_gpa" />
@@ -279,15 +274,15 @@
                         <div wire:key="principal_certification-upload-12345"
                             class="flex justify-start">
                             <div wire:loading.remove
-                                wire:target="principal_certification">
-                                @if ($principal_certification)
-                                    <img src="{{ \Storage::url($principal_certification) }}"
+                                wire:target="principal_certification_or_school_id">
+                                @if ($principal_certification_or_school_id)
+                                    <img src="{{ \Storage::url($principal_certification_or_school_id) }}"
                                         alt="photo"
                                         class="h-56 border rounded-md max-h-56">
                                 @endif
                             </div>
                             <div wire:loading
-                                wire:target="principal_certification"
+                                wire:target="principal_certification_or_school_id"
                                 wire:loading.class="animate-pulse">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="w-10 h-10 text-green-700"
@@ -299,39 +294,10 @@
                                 </svg>
                             </div>
                         </div>
-                        <x-input label="Principal/Head Certification"
+                        <x-input label="Principal/Head Certification or School ID"
                             type="file"
                             placeholder="Upload"
-                            wire:model.debounce.500ms="principal_certification" />
-                    </div>
-                    <div class="space-y-2 sm:col-span-6">
-                        <div wire:key="last_school_id-upload-12345"
-                            class="flex justify-start">
-                            <div wire:loading.remove
-                                wire:target="last_school_id">
-                                @if ($last_school_id)
-                                    <img src="{{ \Storage::url($last_school_id) }}"
-                                        alt="photo"
-                                        class="h-56 border rounded-md max-h-56">
-                                @endif
-                            </div>
-                            <div wire:loading
-                                wire:target="last_school_id"
-                                wire:loading.class="animate-pulse">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="w-10 h-10 text-green-700"
-                                    viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path
-                                        d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z" />
-                                    <path d="M9 13h2v5a1 1 0 11-2 0v-5z" />
-                                </svg>
-                            </div>
-                        </div>
-                        <x-input label="Last Attended School ID"
-                            type="file"
-                            placeholder="Upload"
-                            wire:model.debounce.500ms="last_school_id" />
+                            wire:model.debounce.500ms="principal_certification_or_school_id" />
                     </div>
                 </div>
             </div>

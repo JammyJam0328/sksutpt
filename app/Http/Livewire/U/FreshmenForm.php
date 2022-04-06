@@ -9,6 +9,7 @@ use App\Models\FreshmenApplication;
 use Livewire\WithFileUploads;
 use WireUi\Traits\Actions;
 use App\Models\Payment;
+use Carbon\Carbon;
 class FreshmenForm extends Component
 {
     use WithFileUploads, Actions;
@@ -30,7 +31,6 @@ class FreshmenForm extends Component
     public $present_address;
     public $permanent_address;
     public $nationality;
-    public $citizenship;
     public $civil_status;
     public $tribe;
     public $religion;
@@ -41,10 +41,12 @@ class FreshmenForm extends Component
     public $honor_or_awards_received;
     public $photo;
     public $copy_of_gpa;
-    public $principal_certification;
-    public $last_school_id;
+    public $principal_certification_or_school_id;
     public $sex;
- 
+    protected $validationAttributes=[
+        'copy_of_gpa'=>'Scanned copy of SHS first semester report card',
+        'photo'=>'Actual photo'
+    ];
     public function updatedFirstChoiceCampus()
     {
          $this->freshmenApplication->update([
@@ -110,7 +112,6 @@ class FreshmenForm extends Component
         $this->present_address = $this->freshmenApplication->present_address;
         $this->permanent_address = $this->freshmenApplication->permanent_address;
         $this->nationality = $this->freshmenApplication->nationality ;
-        $this->citizenship = $this->freshmenApplication->citizenship;
         $this->civil_status = $this->freshmenApplication->civil_status;
         $this->tribe = $this->freshmenApplication->tribe;
         $this->religion = $this->freshmenApplication->religion;
@@ -121,8 +122,7 @@ class FreshmenForm extends Component
         $this->honor_or_awards_received = $this->freshmenApplication->honor_or_awards_received;
         $this->photo = $this->freshmenApplication->photo;
         $this->copy_of_gpa = $this->freshmenApplication->copy_of_gpa;
-        $this->principal_certification = $this->freshmenApplication->principal_certification;
-        $this->last_school_id = $this->freshmenApplication->last_school_id;
+        $this->principal_certification_or_school_id = $this->freshmenApplication->principal_certification_or_school_id;
         $this->sex = $this->freshmenApplication->sex;
     }
 
@@ -167,6 +167,10 @@ class FreshmenForm extends Component
         $this->freshmenApplication->update([
             'date_of_birth'=>$this->date_of_birth,
         ]);
+        $this->age = Carbon::parse($this->date_of_birth)->age;
+          $this->freshmenApplication->update([
+            'age'=>$this->age,
+        ]);
     }
     public function updatedAge()
     {
@@ -198,12 +202,7 @@ class FreshmenForm extends Component
             'nationality'=>$this->nationality
         ]);
     }
-    public function updatedCitizenship()
-    {
-        $this->freshmenApplication->update([
-            'citizenship'=>$this->citizenship
-        ]);
-    }
+  
     public function updatedCivilStatus()
     {
         $this->freshmenApplication->update([
@@ -268,20 +267,14 @@ class FreshmenForm extends Component
         ]);
         $this->copy_of_gpa = $this->freshmenApplication->copy_of_gpa;
     }
-    public function updatedPrincipalCertification()
+    public function updatedPrincipalCertificationOrSchoolId()
     {
         $this->freshmenApplication->update([
-            'principal_certification'=>$this->principal_certification->store('f-cert','public'),
+            'principal_certification_or_school_id'=>$this->principal_certification_or_school_id->store('f-cert','public'),
         ]);
-        $this->principal_certification = $this->freshmenApplication->principal_certification;
+        $this->principal_certification_or_school_id = $this->freshmenApplication->principal_certification_or_school_id;
     }
-    public function updatedLastSchoolId()
-    {
-        $this->freshmenApplication->update([
-            'last_school_id'=>$this->last_school_id->store('f-id','public'),
-        ]);
-        $this->last_school_id = $this->freshmenApplication->last_school_id;
-    }
+ 
     public function updatedSex()
     {
         $this->freshmenApplication->update([
@@ -303,7 +296,6 @@ class FreshmenForm extends Component
             'present_address'=>'required',
             'permanent_address'=>'required',
             'nationality'=>'required',
-            'citizenship'=>'required',
             'civil_status'=>'required',
             'tribe'=>'required',
             'religion'=>'required',
@@ -314,8 +306,7 @@ class FreshmenForm extends Component
             'honor_or_awards_received'=>'nullable',
             'photo'=>'required',
             'copy_of_gpa'=>'required',
-            'principal_certification'=>'required',
-            'last_school_id'=>'required',
+            'principal_certification_or_school_id'=>'required',
             'sex'=>'required',
         ]);
         $this->dialog()->confirm([

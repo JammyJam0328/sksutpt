@@ -15,8 +15,9 @@
                 wire:model="selected_day_time">
                 <option value=""
                     selected> --select-- </option>
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
+                @foreach ($times as $time)
+                    <option value="{{ $time }}">{{ $time }}</option>
+                @endforeach
             </x-native-select>
             <div class="flex space-x-2">
                 <h1>Slots : </h1>

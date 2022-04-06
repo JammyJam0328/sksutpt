@@ -105,14 +105,6 @@
                             </div>
                             <div class="py-4 sm:pb-3 sm:grid sm:grid-cols-3 sm:gap-4">
                                 <dt class="text-sm font-medium text-gray-500">
-                                    Citizenship
-                                </dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    {{ $this->application->citizenship }}
-                                </dd>
-                            </div>
-                            <div class="py-4 sm:pb-3 sm:grid sm:grid-cols-3 sm:gap-4">
-                                <dt class="text-sm font-medium text-gray-500">
                                     Civil Status
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -214,25 +206,12 @@
                                 </div>
                                 <div class="py-4 sm:pb-3 sm:grid sm:grid-cols-3 sm:gap-4">
                                     <dt class="text-sm font-medium text-gray-500">
-                                        School Principal/Head Certificate
+                                        Principal/Head Certificate or School ID
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                         <a href="{{ Storage::url($this->application->principal_certification) }}"
                                             target="_blank">
-                                            <img src="{{ Storage::url($this->application->principal_certification) }}"
-                                                alt="Photo"
-                                                class="h-32 duration-150 ease-in-out border rounded-md hover:scale-150 hover:shadow-xl">
-                                        </a>
-                                    </dd>
-                                </div>
-                                <div class="py-4 sm:pb-3 sm:grid sm:grid-cols-3 sm:gap-4">
-                                    <dt class="text-sm font-medium text-gray-500">
-                                        School ID
-                                    </dt>
-                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        <a href="{{ Storage::url($this->application->last_school_id) }}"
-                                            target="_blank">
-                                            <img src="{{ Storage::url($this->application->last_school_id) }}"
+                                            <img src="{{ Storage::url($this->application->principal_certification_or_school_id) }}"
                                                 alt="Photo"
                                                 class="h-32 duration-150 ease-in-out border rounded-md hover:scale-150 hover:shadow-xl">
                                         </a>

@@ -9,7 +9,7 @@ use App\Models\TransfereeApplication;
 use WireUi\Traits\Actions;
 use Livewire\WithFileUploads;
 use App\Models\Payment;
-
+use Carbon\Carbon;
 class TransfereeForm extends Component
 {
     use WithFileUploads, Actions;
@@ -17,7 +17,6 @@ class TransfereeForm extends Component
     public $programs=[];
     public $campusChoice;
    public $program_choice_campus;
-
    public $program_choice;
    public $first_name;
    public $middle_name;
@@ -28,7 +27,6 @@ class TransfereeForm extends Component
    public $place_of_birth;
    public $present_address;
    public $permanent_address;
-   public $citizenship;
    public $civil_status;
    public $tribe;
    public $religion;
@@ -36,9 +34,13 @@ class TransfereeForm extends Component
    public $last_school_attended;
    public $school_year_last_attended;
    public $photo;
+    public $hd_or_good_moral;
    public $sex;
    public $nationality;
-
+    protected $validationAttributes = [
+        'hd_or_good_moral'=>'Honorable Dismissal or Good Moral',
+        'photo'=>'Actual photo'
+    ];
     public function updatedCampusChoice()
     {
         $this->programs = Program::where('campus_id',$this->campusChoice)->get();
@@ -77,7 +79,7 @@ class TransfereeForm extends Component
         $this->present_address = $this->transfereeApplication->present_address;
         $this->permanent_address = $this->transfereeApplication->permanent_address;
         $this->nationality = $this->transfereeApplication->nationality ;
-        $this->citizenship = $this->transfereeApplication->citizenship;
+       
         $this->civil_status = $this->transfereeApplication->civil_status;
         $this->tribe = $this->transfereeApplication->tribe;
         $this->religion = $this->transfereeApplication->religion;
@@ -85,6 +87,7 @@ class TransfereeForm extends Component
         $this->last_school_attended = $this->transfereeApplication->last_school_attended;
         $this->school_year_last_attended = $this->transfereeApplication->school_year_last_attended;
         $this->photo = $this->transfereeApplication->photo;
+        $this->hd_or_good_moral = $this->transfereeApplication->hd_or_good_moral;
         $this->sex = $this->transfereeApplication->sex;
     }
 
@@ -123,6 +126,11 @@ class TransfereeForm extends Component
         $this->transfereeApplication->update([
             'date_of_birth' => $this->date_of_birth
         ]);
+        $this->age = Carbon::parse($this->date_of_birth)->age;
+         $this->transfereeApplication->update([
+            'age' => $this->age
+        ]);     
+
     }
     public function updatedAge()
     {
@@ -148,12 +156,7 @@ class TransfereeForm extends Component
             'permanent_address' => $this->permanent_address
         ]);
     }
-    public function updatedCitizenship()
-    {
-        $this->transfereeApplication->update([
-            'citizenship' => $this->citizenship
-        ]);
-    }
+   
     public function updatedCivilStatus()
     {
         $this->transfereeApplication->update([
@@ -197,6 +200,13 @@ class TransfereeForm extends Component
         ]);
         $this->photo = $this->transfereeApplication->photo;
     }
+    public function updatedHdOrGoodMoral()
+    {
+        $this->transfereeApplication->update([
+            'hd_or_good_moral' => $this->hd_or_good_moral->store('f-moral','public'),
+        ]);
+        $this->hd_or_good_moral = $this->transfereeApplication->hd_or_good_moral;
+    }
     public function updatedSex()
     {
         $this->transfereeApplication->update([
@@ -225,7 +235,6 @@ class TransfereeForm extends Component
            'present_address'=>'required',
            'permanent_address'=>'required',
            'nationality'=>'required',
-           'citizenship'=>'required',
            'civil_status'=>'required',
            'tribe'=>'required',
            'religion'=>'required',

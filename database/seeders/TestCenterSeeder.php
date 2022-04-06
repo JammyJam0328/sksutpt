@@ -16,7 +16,7 @@ class TestCenterSeeder extends Seeder
     {
         // 40
         TestCenter::create([
-            'name'=>'SKSU Access Campus',
+            'name'=>'SKSU ACCESS Campus',
         ]);
         // 20
         TestCenter::create([

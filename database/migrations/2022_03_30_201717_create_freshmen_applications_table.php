@@ -42,8 +42,7 @@ return new class extends Migration
             $table->string('honor_or_awards_received')->nullable();
             $table->string('photo')->nullable();
             $table->string('copy_of_gpa')->nullable();
-            $table->string('principal_certification')->nullable();
-            $table->string('last_school_id')->nullable();
+            $table->string('principal_certification_or_school_id')->nullable();
             $table->string('sex')->nullable();
             $table->timestamps();
         });

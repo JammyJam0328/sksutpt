@@ -75,13 +75,13 @@
                             wire:model.lazy="extension" />
                     </div>
                     <div class="sm:col-span-6">
-                        <x-input label="Preset Address"
-                            placeholder="Preset Address"
+                        <x-input label="Present Address"
+                            placeholder="Present Address"
                             wire:model.lazy="present_address" />
                     </div>
                     <div class="sm:col-span-6">
-                        <x-input label="Permanent Address"
-                            placeholder="Permanent Address"
+                        <x-input label="Permanent address/Provincial address"
+                            placeholder="Permanent address/Provincial address"
                             wire:model.lazy="permanent_address" />
                     </div>
                     <div class="sm:col-span-2">
@@ -108,22 +108,18 @@
                             placeholder="Place of Birth"
                             wire:model.lazy="place_of_birth" />
                     </div>
-                    <div class="sm:col-span-2">
+                    <div class="sm:col-span-3">
                         <x-input label="Nationality"
                             placeholder="Nationality"
                             wire:model.lazy="nationality" />
                     </div>
-                    <div class="sm:col-span-2">
-                        <x-input label="Citizenship"
-                            placeholder="Citizenship"
-                            wire:model.lazy="citizenship" />
-                    </div>
-                    <div class="sm:col-span-2">
+
+                    <div class="sm:col-span-3">
                         <x-native-select label="Civil Status"
                             wire:model.lazy="civil_status">
                             <option value="">Select</option>
                             <option value="Single">Single</option>
-                            <option value="Maried">Maried</option>
+                            <option value="Married">Married</option>
                             <option value="Widowed">Widowed</option>
                             <option value="Separated">Separated</option>
                         </x-native-select>
@@ -204,6 +200,35 @@
                             type="file"
                             placeholder="Upload Photo"
                             wire:model.debounce.500ms="photo" />
+                    </div>
+                    <div class="space-y-2 sm:col-span-6">
+                        <div wire:key="hd_or_good_moral-12345"
+                            class="flex justify-start">
+                            <div wire:loading.remove
+                                wire:target="hd_or_good_moral">
+                                @if ($hd_or_good_moral)
+                                    <img src="{{ \Storage::url($hd_or_good_moral) }}"
+                                        alt="hd_or_good_moral"
+                                        class="h-56 border rounded-md max-h-56">
+                                @endif
+                            </div>
+                            <div wire:loading
+                                wire:target="hd_or_good_moral"
+                                wire:loading.class="animate-pulse">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="w-10 h-10 text-green-700"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path
+                                        d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z" />
+                                    <path d="M9 13h2v5a1 1 0 11-2 0v-5z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <x-input label="Upload Honorable Dismissal or Good Moral"
+                            type="file"
+                            placeholder="Upload Honorable Dismissal or Good Moral"
+                            wire:model.debounce.500ms="hd_or_good_moral" />
                     </div>
                 </div>
             </div>

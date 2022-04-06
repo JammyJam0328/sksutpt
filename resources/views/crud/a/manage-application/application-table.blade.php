@@ -55,15 +55,16 @@
                                         {{ $application->last_name }}
                                     </td>
                                     @if ($tab == 'freshmen')
-                                        <td class="px-3 py-4 text-xs text-gray-500 whitespace-nowrap">
-                                            <div class="w-40 break-words">{{ $application->first_choice }}</div>
+                                        <td class="px-3 py-4 text-xs text-gray-500 ">
+                                            <div class="flex w-40 break-words">{{ $application->first_choice }}</div>
                                         </td>
-                                        <td class="px-3 py-4 text-xs text-gray-500 whitespace-nowrap">
-                                            <div class="w-40 break-words"> {{ $application->second_choice }}</div>
+                                        <td class="px-3 py-4 text-xs text-gray-500 ">
+                                            <div class="flex w-40 break-words"> {{ $application->second_choice }}
+                                            </div>
                                         </td>
                                     @else
-                                        <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            <div class="w-40 break-words">
+                                        <td class="px-3 py-4 text-sm text-gray-500 ">
+                                            <div class="flex w-40 break-words">
                                                 {{ $application->program_choice }}
                                             </div>
                                         </td>

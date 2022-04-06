@@ -24,6 +24,11 @@ class SelectRoom extends Component
     public $selected_day_time;
     public $selected_test_center;
     public $current_room;
+
+    public $times = [
+        'AM 7:00 - 12:00',
+        'PM 12:30 - 6:00',
+    ];
     public function mount()
     {
         $this->examination_id=Examination::where('isOpen',1)->first()->id;
@@ -45,8 +50,8 @@ class SelectRoom extends Component
     public function save()
     {
         $this->validate([
-            'selected_day_time'=>'required',
-            'selected_test_center'=>'required',
+            'selected_day_time'=>'required|in:AM 7:00 - 12:00,PM 12:30 - 6:00',
+            'selected_test_center'=>'required|in:'.implode(',',$this->testCenters->pluck('id')->toArray()),
         ]);
         $this->grouping->update([
             'occupied_slots'=>$this->grouping->occupied_slots+1,
