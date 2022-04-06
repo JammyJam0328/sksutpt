@@ -11,7 +11,7 @@
                         value="{{ $testCenter->id }}">{{ $testCenter->testCenter->name }}</option>
                 @endforeach
             </x-native-select>
-            <x-native-select label="Select Test Center"
+            <x-native-select label="Select Day Time"
                 wire:model="selected_day_time">
                 <option value=""
                     selected> --select-- </option>

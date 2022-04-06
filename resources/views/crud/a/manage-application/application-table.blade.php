@@ -56,14 +56,16 @@
                                     </td>
                                     @if ($tab == 'freshmen')
                                         <td class="px-3 py-4 text-xs text-gray-500 whitespace-nowrap">
-                                            <span>{{ $application->first_choice }}</span>
+                                            <div class="w-40 break-words">{{ $application->first_choice }}</div>
                                         </td>
                                         <td class="px-3 py-4 text-xs text-gray-500 whitespace-nowrap">
-                                            <span> {{ $application->second_choice }}</span>
+                                            <div class="w-40 break-words"> {{ $application->second_choice }}</div>
                                         </td>
                                     @else
                                         <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            {{ $application->program_choice }}
+                                            <div class="w-40 break-words">
+                                                {{ $application->program_choice }}
+                                            </div>
                                         </td>
                                     @endif
                                     <td

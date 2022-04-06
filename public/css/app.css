@@ -1513,6 +1513,9 @@ select {
 .w-9 {
   width: 2.25rem;
 }
+.w-40 {
+  width: 10rem;
+}
 .min-w-0 {
   min-width: 0px;
 }
@@ -1874,6 +1877,9 @@ select {
 }
 .whitespace-nowrap {
   white-space: nowrap;
+}
+.break-words {
+  overflow-wrap: break-word;
 }
 .break-all {
   word-break: break-all;
