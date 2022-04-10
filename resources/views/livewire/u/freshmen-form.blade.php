@@ -110,7 +110,7 @@
                             placeholder="Permanent address/Provincial address"
                             wire:model.lazy="permanent_address" />
                     </div>
-                    <div class="sm:col-span-6">
+                    <div class="sm:col-span-3">
                         <x-native-select label="Province"
                             wire:model.lazy="province">
                             <option value="">Select</option>
@@ -118,6 +118,11 @@
                                 <option value="{{ $province }}">{{ $province }}</option>
                             @endforeach
                         </x-native-select>
+                    </div>
+                    <div class="sm:col-span-3">
+                        <x-input label="Contact Number"
+                            placeholder="Contact Number"
+                            wire:model.lazy="contact_number" />
                     </div>
                     <div class="sm:col-span-2">
                         <x-native-select label="Sex"
@@ -245,7 +250,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <x-input label="Upload Actual photo (Take an actual upon registration)"
+                        <x-input label="Please provide current picture, white background passport size with name tag"
                             type="file"
                             placeholder="Upload Photo"
                             wire:model.debounce.500ms="photo" />
@@ -282,7 +287,7 @@
             </div>
         </div>
         <x-slot name="footer">
-            <div x-data="{ terms: false}">
+            <div x-data="{ terms: false }">
                 <div class="mb-2">
                     <div class="relative flex items-start">
                         <div class="flex items-center h-5">
@@ -321,7 +326,7 @@
                 </div>
                 <div x-show="terms==false"
                     class="flex justify-end">
-                    <x-button  disabled
+                    <x-button disabled
                         gray>
                         Save</x-button>
                 </div>

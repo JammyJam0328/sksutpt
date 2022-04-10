@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('place_of_birth')->nullable();
             $table->string('present_address')->nullable();
             $table->string('permanent_address')->nullable();
+            $table->string('contact_number')->nullable();
             $table->string('nationality')->nullable();
             $table->string('citizenship')->nullable();
             $table->string('civil_status')->nullable();

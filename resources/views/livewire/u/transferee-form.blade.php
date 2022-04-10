@@ -84,7 +84,7 @@
                             placeholder="Permanent address/Provincial address"
                             wire:model.lazy="permanent_address" />
                     </div>
-                    <div class="sm:col-span-6">
+                    <div class="sm:col-span-3">
                         <x-native-select label="Province"
                             wire:model.lazy="province">
                             <option value="">Select</option>
@@ -92,6 +92,11 @@
                                 <option value="{{ $province }}">{{ $province }}</option>
                             @endforeach
                         </x-native-select>
+                    </div>
+                    <div class="sm:col-span-3">
+                        <x-input label="Contact Number"
+                            placeholder="Contact Number"
+                            wire:model.lazy="contact_number" />
                     </div>
                     <div class="sm:col-span-2">
                         <x-native-select label="Sex"
@@ -205,7 +210,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <x-input label="Upload Actual Photo  (Take an actual upon registration)"
+                        <x-input label="Please provide current picture, white background passport size with name tag"
                             type="file"
                             placeholder="Upload Photo"
                             wire:model="photo" />

@@ -28,6 +28,7 @@ class TransfereeForm extends Component
    public $present_address;
    public $permanent_address;
    public $province;
+   public $contact_number;
    public $civil_status;
    public $tribe;
    public $religion;
@@ -164,6 +165,7 @@ class TransfereeForm extends Component
         $this->present_address = $this->transfereeApplication->present_address;
         $this->permanent_address = $this->transfereeApplication->permanent_address;
         $this->province = $this->transfereeApplication->province;
+        $this->contact_number = $this->transfereeApplication->contact_number;
         $this->nationality = $this->transfereeApplication->nationality ;
         $this->civil_status = $this->transfereeApplication->civil_status;
         $this->tribe = $this->transfereeApplication->tribe;
@@ -248,7 +250,16 @@ class TransfereeForm extends Component
             'province' => $this->province
         ]);
     }
-   
+    public function updatedContactNumber()
+    {
+        // contact number should be 11 digits and numeric
+        $this->validate([
+            'contact_number' => 'required|numeric|digits:11'
+        ]);
+        $this->transfereeApplication->update([
+            'contact_number' => $this->contact_number
+        ]);
+    }
     public function updatedCivilStatus()
     {
         $this->transfereeApplication->update([
@@ -330,6 +341,7 @@ class TransfereeForm extends Component
            'present_address'=>'required',
            'permanent_address'=>'required',
            'province'=>'required',
+            'contact_number'=>'required',
            'nationality'=>'required',
            'civil_status'=>'required',
            'tribe'=>'required',
