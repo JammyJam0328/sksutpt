@@ -15,10 +15,19 @@ use WireUi\Traits\Actions;
 class ManagePayments extends Component
 {
     use WithPagination, Actions;
-    public $filter="payment_submitted";
     public $set_id;
     public $optionModal=false;
     public $showProofModal=false;
+    public $testCenters=[];
+    public $examination_id;
+    public $examinationTestCenters=[];
+    public $test_center;
+    public function mount() 
+    {
+        $this->examination_id=Examination::where('isOpen',1)->first() ? Examination::where('isOpen',1)->first()->id : null;
+        $this->examinationTestCenters = ExaminationTestCenter::where('examination_id',$this->examination_id)->with('testCenter')->get();
+    }
+
     public function getPaymentProperty()
     {
         return Payment::where('id',$this->set_id)->with(['proofs','user'])->first();
@@ -26,9 +35,7 @@ class ManagePayments extends Component
     public function render()
     {
         return view('livewire.a.manage-payments',[
-            'payments'=>Payment::whereHas('user',function($query){
-                $query->where('applicant_state','like','%'.$this->filter.'%');
-            })->with('user')->paginate(10),
+            'payments'=>Payment::where('payment_status','to-review')->with(['user.freshmenApplication','user.transfereeApplication'])->paginate(10),
         ])
         ->layout('layouts.admin');
     }
@@ -45,8 +52,33 @@ class ManagePayments extends Component
         $this->showProofModal=true;
     }
 
+    public function updatedTestCenter()
+    {
+        $grouping =  Grouping::where('examination_test_center_id',$this->test_center)
+                        ->where('occupied_slots','<',25)
+                        ->first();
+        if($grouping)
+        {
+        //    
+        }
+        else
+        {
+            
+            $this->notification()->notify([
+                'title'=>'Failed',
+                'description'=>'No available Slots',
+                'icon'=>'error',
+            ]);
+            $this->test_center='';
+            return;
+        }
+    }
+
     public function approvePaymentConfirmation()
     {
+        $this->validate([
+            'test_center'=>'required|in:'.implode(',',$this->examinationTestCenters->pluck('id')->toArray()),
+        ]);
          $this->dialog()->confirm([
             'title'       => 'Are you Sure?',
             'description' => 'Are you sure you want to approve this payment?',
@@ -63,6 +95,9 @@ class ManagePayments extends Component
 
     public function approvePayment()
     {
+        $this->payment->user()->update([
+            'selected_test_center'=>$this->test_center,
+        ]);
         $this->payment->update([
             'amount_paid'=>'275',
             'date_paid'=>now(),

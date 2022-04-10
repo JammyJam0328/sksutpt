@@ -22,7 +22,6 @@ class SelectRoom extends Component
     public $testCenters=[];
     public $examination_id;
     public $selected_day_time;
-    public $selected_test_center;
     public $current_room;
 
     public $times = [
@@ -36,8 +35,8 @@ class SelectRoom extends Component
     }
     public function getGroupingProperty()
     {
-        return Grouping::where('examination_test_center_id',$this->selected_test_center)
-                        ->where('occupied_slots','<=',25)
+        return Grouping::where('examination_test_center_id',auth()->user()->selected_test_center)
+                        ->where('occupied_slots','<',25)
                         ->where('day_time',$this->selected_day_time)
                         ->first();
     }
@@ -49,9 +48,9 @@ class SelectRoom extends Component
 
     public function save()
     {
+      
         $this->validate([
             'selected_day_time'=>'required|in:AM 7:00 - 12:00,PM 12:30 - 6:00',
-            'selected_test_center'=>'required|in:'.implode(',',$this->testCenters->pluck('id')->toArray()),
         ]);
         $this->grouping->update([
             'occupied_slots'=>$this->grouping->occupied_slots+1,

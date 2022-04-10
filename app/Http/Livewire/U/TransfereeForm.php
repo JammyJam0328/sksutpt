@@ -27,6 +27,7 @@ class TransfereeForm extends Component
    public $place_of_birth;
    public $present_address;
    public $permanent_address;
+   public $province;
    public $civil_status;
    public $tribe;
    public $religion;
@@ -37,6 +38,90 @@ class TransfereeForm extends Component
     public $hd_or_good_moral;
    public $sex;
    public $nationality;
+     // provinces of the philippines
+    public $provinces = [        
+    'Ilocos Norte',
+    'Ilocos Sur',
+    'La Union',
+    'Pangasinan',
+    'Batanes',
+    'Cagayan',
+    'Isabela',
+    'Nueva Vizcaya',
+    'Quirino',
+    'Aurora',
+    'Bataan',
+    'Bulacan',
+    'Pampanga',
+    'Tarlac',
+    'Zambales',
+    'Nueva Ecija',
+    'Cavite',
+    'Laguna',
+    'Batangas',
+    'Rizal',
+    'Quezon',
+    'Occidental Mindoro',
+    'Oriental Mindoro',
+    'Marinduque',
+    'Romblon',
+    'Palawan',
+    'Camarines Norte',
+    'Camarines Sur',
+    'Catanduanes',
+    'Masbate',
+    'Sorsogon',
+    'Albay',
+    'Aklan',
+    'Antique',
+    'Guimaras',
+    'Capiz',
+    'Iloilo',
+    'Bohol',
+    'Cebu',
+    'Siquijor',
+    'Negros Oriental',
+    'Negros Occidental',
+    'Biliran',
+    'Leyte',
+    'Northern Samar',
+    'Samar',
+    'Southern Leyte',
+    'Eastern Samar',
+    'Zamboanga Del Norte',
+    'Zamboanga del Sur',
+    'Zamboanga Sibugay',
+    'Camiguin',
+    'Bukidnon',
+    'Lanao Del Norte',
+    'Misamis Oriental',
+    'Misamis Occidental',
+    'Compostela Valley',
+    'Davao del Norte',
+    'Davao del Sur',
+    'Davao Oriental',
+    'Davao Occidental',
+    'South Cotabato',
+    'Cotabato',
+    'Sultan Kudarat',
+    'Sarangani',
+    'Agusan del Norte',
+    'Agusan del Sur',
+    'Surigao del Norte',
+    'Surigao del Sur',
+    'Dinagat Islands',
+    'Apayao',
+    'Abra',
+    'Benguet',
+    'Ifugao',
+    'Kalinga',
+    'Mountain Province',
+    'Basilan',
+    'Lanao del Sur',
+    'Maguindanao',
+    'Sulu',
+    'Tawi-Tawi'
+    ];
     protected $validationAttributes = [
         'hd_or_good_moral'=>'Honorable Dismissal or Good Moral',
         'photo'=>'Actual photo'
@@ -78,8 +163,8 @@ class TransfereeForm extends Component
         $this->place_of_birth = $this->transfereeApplication->place_of_birth;
         $this->present_address = $this->transfereeApplication->present_address;
         $this->permanent_address = $this->transfereeApplication->permanent_address;
+        $this->province = $this->transfereeApplication->province;
         $this->nationality = $this->transfereeApplication->nationality ;
-       
         $this->civil_status = $this->transfereeApplication->civil_status;
         $this->tribe = $this->transfereeApplication->tribe;
         $this->religion = $this->transfereeApplication->religion;
@@ -156,6 +241,13 @@ class TransfereeForm extends Component
             'permanent_address' => $this->permanent_address
         ]);
     }
+
+    public function updatedProvince()
+    {
+        $this->transfereeApplication->update([
+            'province' => $this->province
+        ]);
+    }
    
     public function updatedCivilStatus()
     {
@@ -202,6 +294,9 @@ class TransfereeForm extends Component
     }
     public function updatedHdOrGoodMoral()
     {
+        $this->validate([
+            'hd_or_good_moral' => 'required|mimes:pdf'
+        ]);
         $this->transfereeApplication->update([
             'hd_or_good_moral' => $this->hd_or_good_moral->store('f-moral','public'),
         ]);
@@ -215,7 +310,7 @@ class TransfereeForm extends Component
     }
     public function updatedNationality()
     {
-           $this->transfereeApplication->update([
+        $this->transfereeApplication->update([
             'nationality'=>$this->nationality,
         ]);
     }
@@ -234,6 +329,7 @@ class TransfereeForm extends Component
            'place_of_birth'=>'required',
            'present_address'=>'required',
            'permanent_address'=>'required',
+           'province'=>'required',
            'nationality'=>'required',
            'civil_status'=>'required',
            'tribe'=>'required',
@@ -265,7 +361,7 @@ class TransfereeForm extends Component
         ]);
         Payment::create([
             'user_id'=>auth()->user()->id,
-            'application_type'=>'transferee',
+            'application_type'=>auth()->user()->applicant_type,
             'application_id'=>$this->transfereeApplication->id,
         ]);
         $this->emitUp('finalize');

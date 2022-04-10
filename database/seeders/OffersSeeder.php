@@ -73,15 +73,22 @@ class OffersSeeder extends Seeder
 //  *Bachelor of Science in Computer Science (Level II)
 //  *Bachelor of Science in Information Technology (Level III)
 //  *Bachelor of Science in Information System (Level II)
-//  *Bachelor in Technical-Vocational Teacher Education (Level II)
-//  *Bachelor of Science in Industrial Technology ((Level IV)
-//  *Bachelor of Science in Electronics and Communication    Engineering
+// BACHELOR OF SCIENCE IN INDUSTRIAL TECHNOLOGY (MAJOR IN DRAFTING TECHNOLOGY)
+// BACHELOR OF SCIENCE IN INDUSTRIAL TECHNOLOGY (MAJOR IN FOOD TECHNOLOGY)
+// BACHELOR OF SCIENCE IN INDUSTRIAL TECHNOLOGY (MAJOR IN AUTOMOTIVE TECHNOLOGY)
+// BACHELOR OF SCIENCE IN INDUSTRIAL TECHNOLOGY (MAJOR IN ELECTRICAL TECHNOLOGY)
+// BACHELOR OF SCIENCE IN INDUSTRIAL TECHNOLOGY (MAJOR IN ELECTRONIC TECHNOLOGY)
+// BACHELOR OF SCIENCE IN INDUSTRIAL TECHNOLOGY (MAJOR IN CIVIL TECHNOLOGY)
+// BACHELOR IN TECHNICAL-VOCATIONAL TEACHER EDUCATION (MAJOR IN DRAFTING TECHNOLOGY)
+// BACHELOR IN TECHNICAL-VOCATIONAL TEACHER EDUCATION (MAJOR IN FOOD SERVICE MANAGEMENT)
+// BACHELOR IN TECHNICAL-VOCATIONAL TEACHER EDUCATION (MAJOR IN AUTOMOTIVE TECHNOLOGY)
+// BACHELOR IN TECHNICAL-VOCATIONAL TEACHER EDUCATION (MAJOR IN ELECTRICAL TECHNOLOGY)
+// BACHELOR IN TECHNICAL-VOCATIONAL TEACHER EDUCATION (MAJOR IN ELECTRONIC TECHNOLOGY)
+// BACHELOR IN TECHNICAL-VOCATIONAL TEACHER EDUCATION (MAJOR IN CIVIL TECHNOLOGY)
 
-            
             $campus = Campus::create([
                 'name'=>"Isulan Campus"
             ]);
-
             $campus->programs()->create([
                 'name'=>"Bachelor of Science in Civil Engineering (Level II)"
             ]);
@@ -98,15 +105,42 @@ class OffersSeeder extends Seeder
                 'name'=>"Bachelor of Science in Information System (Level II)"
             ]);
             $campus->programs()->create([
-                'name'=>"Bachelor in Technical-Vocational Teacher Education (Level II)"
+                'name'=>"Bachelor of Science in Industrial Technology (Major in Drafting Technology)"
             ]);
             $campus->programs()->create([
-                'name'=>"Bachelor of Science in Industrial Technology ((Level IV)"
+                'name'=>"Bachelor of Science in Industrial Technology (Major in Food Technology)"
             ]);
             $campus->programs()->create([
-                'name'=>"Bachelor of Science in Electronics and Communication Engineering"
+                'name'=>"Bachelor of Science in Industrial Technology (Major in Automotive Technology)"
             ]);
-        
+            $campus->programs()->create([
+                'name'=>"Bachelor of Science in Industrial Technology (Major in Electrical Technology)"
+            ]);
+            $campus->programs()->create([
+                'name'=>"Bachelor of Science in Industrial Technology (Major in Electronic Technology)"
+            ]);
+            $campus->programs()->create([
+                'name'=>"Bachelor of Science in Industrial Technology (Major in Civil Technology)"
+            ]);
+            $campus->programs()->create([
+                'name'=>"Bachelor in Technical-Vocational Teacher Education (Major in Drafting Technology)"
+            ]);
+            $campus->programs()->create([
+                'name'=>"Bachelor in Technical-Vocational Teacher Education (Major in Food Service Management)"
+            ]);
+            $campus->programs()->create([
+                'name'=>"Bachelor in Technical-Vocational Teacher Education (Major in Automotive Technology)"
+            ]);
+            $campus->programs()->create([
+                'name'=>"Bachelor in Technical-Vocational Teacher Education (Major in Electrical Technology)"
+            ]);
+            $campus->programs()->create([
+                'name'=>"Bachelor in Technical-Vocational Teacher Education (Major in Electronic Technology)"
+            ]);
+            $campus->programs()->create([
+                'name'=>"Bachelor in Technical-Vocational Teacher Education (Major in Civil Technology)"
+            ]);
+
             $campus = Campus::create([
                 'name'=>"Tacurong Campus"
             ]);

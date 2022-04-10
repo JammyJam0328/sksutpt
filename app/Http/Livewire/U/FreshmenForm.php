@@ -30,6 +30,7 @@ class FreshmenForm extends Component
     public $place_of_birth;
     public $present_address;
     public $permanent_address;
+    public $province;
     public $nationality;
     public $civil_status;
     public $tribe;
@@ -43,6 +44,90 @@ class FreshmenForm extends Component
     public $copy_of_gpa;
     public $principal_certification_or_school_id;
     public $sex;
+    // provinces of the philippines
+    public $provinces = [        
+    'Ilocos Norte',
+    'Ilocos Sur',
+    'La Union',
+    'Pangasinan',
+    'Batanes',
+    'Cagayan',
+    'Isabela',
+    'Nueva Vizcaya',
+    'Quirino',
+    'Aurora',
+    'Bataan',
+    'Bulacan',
+    'Pampanga',
+    'Tarlac',
+    'Zambales',
+    'Nueva Ecija',
+    'Cavite',
+    'Laguna',
+    'Batangas',
+    'Rizal',
+    'Quezon',
+    'Occidental Mindoro',
+    'Oriental Mindoro',
+    'Marinduque',
+    'Romblon',
+    'Palawan',
+    'Camarines Norte',
+    'Camarines Sur',
+    'Catanduanes',
+    'Masbate',
+    'Sorsogon',
+    'Albay',
+    'Aklan',
+    'Antique',
+    'Guimaras',
+    'Capiz',
+    'Iloilo',
+    'Bohol',
+    'Cebu',
+    'Siquijor',
+    'Negros Oriental',
+    'Negros Occidental',
+    'Biliran',
+    'Leyte',
+    'Northern Samar',
+    'Samar',
+    'Southern Leyte',
+    'Eastern Samar',
+    'Zamboanga Del Norte',
+    'Zamboanga del Sur',
+    'Zamboanga Sibugay',
+    'Camiguin',
+    'Bukidnon',
+    'Lanao Del Norte',
+    'Misamis Oriental',
+    'Misamis Occidental',
+    'Compostela Valley',
+    'Davao del Norte',
+    'Davao del Sur',
+    'Davao Oriental',
+    'Davao Occidental',
+    'South Cotabato',
+    'Cotabato',
+    'Sultan Kudarat',
+    'Sarangani',
+    'Agusan del Norte',
+    'Agusan del Sur',
+    'Surigao del Norte',
+    'Surigao del Sur',
+    'Dinagat Islands',
+    'Apayao',
+    'Abra',
+    'Benguet',
+    'Ifugao',
+    'Kalinga',
+    'Mountain Province',
+    'Basilan',
+    'Lanao del Sur',
+    'Maguindanao',
+    'Sulu',
+    'Tawi-Tawi'
+    ];
     protected $validationAttributes=[
         'copy_of_gpa'=>'Scanned copy of SHS first semester report card',
         'photo'=>'Actual photo'
@@ -111,6 +196,7 @@ class FreshmenForm extends Component
         $this->place_of_birth = $this->freshmenApplication->place_of_birth;
         $this->present_address = $this->freshmenApplication->present_address;
         $this->permanent_address = $this->freshmenApplication->permanent_address;
+        $this->province = $this->freshmenApplication->province;
         $this->nationality = $this->freshmenApplication->nationality ;
         $this->civil_status = $this->freshmenApplication->civil_status;
         $this->tribe = $this->freshmenApplication->tribe;
@@ -196,6 +282,12 @@ class FreshmenForm extends Component
             'permanent_address'=>$this->permanent_address,
         ]);
     }
+    public function updatedProvince()
+    {
+        $this->freshmenApplication->update([
+            'province'=>$this->province,
+        ]);
+    }
     public function updatedNationality()
     {
         $this->freshmenApplication->update([
@@ -262,6 +354,9 @@ class FreshmenForm extends Component
     }
     public function updatedCopyOfGpa()
     {
+        $this->validate([
+            'copy_of_gpa'=>'required|mimes:pdf',
+        ]);
         $this->freshmenApplication->update([
             'copy_of_gpa'=>$this->copy_of_gpa->store('f-gpa','public'),
         ]);
@@ -269,6 +364,9 @@ class FreshmenForm extends Component
     }
     public function updatedPrincipalCertificationOrSchoolId()
     {
+        $this->validate([
+            'principal_certification_or_school_id'=>'required|mimes:pdf',
+        ]);
         $this->freshmenApplication->update([
             'principal_certification_or_school_id'=>$this->principal_certification_or_school_id->store('f-cert','public'),
         ]);
@@ -295,6 +393,7 @@ class FreshmenForm extends Component
             'place_of_birth'=>'required',
             'present_address'=>'required',
             'permanent_address'=>'required',
+            'province'=>'required',
             'nationality'=>'required',
             'civil_status'=>'required',
             'tribe'=>'required',
@@ -330,7 +429,7 @@ class FreshmenForm extends Component
         ]);
         Payment::create([
             'user_id'=>auth()->user()->id,
-            'application_type'=>'freshmen',
+            'application_type'=> auth()->user()->applicant_type,
             'application_id'=>$this->freshmenApplication->id,
         ]);
         $this->emitUp('finalize');

@@ -59,6 +59,7 @@ class PaymentForm extends Component
         }
         $this->payment->update([
             'amount_paid'=>'275',
+            'payment_status'=>'to-review',
         ]);
         auth()->user()->update([
             'applicant_state'=>'payment_submitted',

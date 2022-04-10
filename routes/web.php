@@ -37,7 +37,10 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified','admin'])->group(
     Route::get('/manage/examinations',\App\Http\Livewire\A\ManageExamination::class)->name('admin.manage.examinations');
     Route::get('/examination/{examination_id}/details',\App\Http\Livewire\A\ViewExaminationDetails::class)->name('admin.examination.details');
     Route::get('/manage/applications',\App\Http\Livewire\A\ManageApplications::class)->name('admin.manage.applications');
-    Route::get('manage/payments',\App\Http\Livewire\A\ManagePayments::class)->name('admin.manage.payments');
+    Route::get('/manage/payments',\App\Http\Livewire\A\ManagePayments::class)->name('admin.manage.payments');
+    Route::get('/manage/payments/approved',\App\Http\Livewire\A\ManageAllPayment::class)->name('admin.manage.all-payments');
+    Route::get('/manage/payments/denied',\App\Http\Livewire\A\DeniedPayments::class)->name('admin.manage.denied-payments');
+    Route::get('/generate/reports',\App\Http\Livewire\A\GenerateReports::class)->name('admin.generate.reports');
 });
 
 Route::prefix('/applicant')->middleware(['auth:sanctum', 'verified','user'])->group(function () {

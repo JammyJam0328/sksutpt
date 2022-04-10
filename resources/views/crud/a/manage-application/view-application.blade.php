@@ -62,6 +62,14 @@
                             </div>
                             <div class="py-4 sm:pb-3 sm:grid sm:grid-cols-3 sm:gap-4">
                                 <dt class="text-sm font-medium text-gray-500">
+                                    Province
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                    {{ $this->application->province }}
+                                </dd>
+                            </div>
+                            <div class="py-4 sm:pb-3 sm:grid sm:grid-cols-3 sm:gap-4">
+                                <dt class="text-sm font-medium text-gray-500">
                                     Sex
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -154,6 +162,7 @@
                                         {{ $this->application->school_last_attended_address }}
                                     </dd>
                                 </div>
+
                                 <div class="py-4 sm:pb-3 sm:grid sm:grid-cols-3 sm:gap-4">
                                     <dt class="text-sm font-medium text-gray-500">
                                         Track and Strand Taken
@@ -197,11 +206,11 @@
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                         <a href="{{ Storage::url($this->application->copy_of_gpa) }}"
-                                            target="_blank">
-                                            <img src="{{ Storage::url($this->application->copy_of_gpa) }}"
-                                                alt="Photo"
-                                                class="h-32 duration-150 ease-in-out border rounded-md hover:scale-150 hover:shadow-xl">
+                                            target="blank"
+                                            class="text-blue-600 underline">
+                                            Open PDF
                                         </a>
+
                                     </dd>
                                 </div>
                                 <div class="py-4 sm:pb-3 sm:grid sm:grid-cols-3 sm:gap-4">
@@ -209,11 +218,10 @@
                                         Principal/Head Certificate or School ID
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        <a href="{{ Storage::url($this->application->principal_certification) }}"
-                                            target="_blank">
-                                            <img src="{{ Storage::url($this->application->principal_certification_or_school_id) }}"
-                                                alt="Photo"
-                                                class="h-32 duration-150 ease-in-out border rounded-md hover:scale-150 hover:shadow-xl">
+                                        <a href="{{ Storage::url($this->application->principal_certification_or_school_id) }}"
+                                            target="-blank"
+                                            class="text-blue-600 underline">
+                                            Open PDF
                                         </a>
                                     </dd>
                                 </div>
@@ -252,6 +260,18 @@
                                             <img src="{{ Storage::url($this->application->photo) }}"
                                                 alt="Photo"
                                                 class="h-32 duration-150 ease-in-out border rounded-md hover:scale-150 hover:shadow-xl">
+                                        </a>
+                                    </dd>
+                                </div>
+                                <div class="py-4 sm:pb-3 sm:grid sm:grid-cols-3 sm:gap-4">
+                                    <dt class="text-sm font-medium text-gray-500">
+                                        Honorable Dismissal or Good Moral
+                                    </dt>
+                                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                        <a href="{{ Storage::url($this->application->hd_or_good_moral) }}"
+                                            target="-blank"
+                                            class="text-blue-600 underline">
+                                            Open PDF
                                         </a>
                                     </dd>
                                 </div>

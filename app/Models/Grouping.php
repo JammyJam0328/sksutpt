@@ -14,4 +14,8 @@ class Grouping extends Model
     {
         return $this->belongsTo(ExaminationTestCenter::class);
     }
+    public function permits()
+    {
+        return $this->hasMany(Permit::class);
+    }
 }

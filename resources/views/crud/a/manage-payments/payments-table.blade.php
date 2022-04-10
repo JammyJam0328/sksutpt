@@ -3,14 +3,8 @@
         <div class="sm:flex-auto">
             <h1 class="text-xl font-semibold text-gray-900">Payments</h1>
             <p class="mt-2 text-sm text-gray-700">
-                By default, all listed are payments to review.
+                All listed are payments to review.
             </p>
-        </div>
-        <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-            <x-native-select wire:model="filter">
-                <option value="payment_submitted">To Review</option>
-                <option value="">All</option>
-            </x-native-select>
         </div>
     </div>
     <div class="flex flex-col mt-8">
@@ -43,7 +37,15 @@
                                 <tr>
                                     <td
                                         class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6">
-                                        {{ $payment->user->name }}
+                                        @if ($payment->user->applicant_type == 'Freshmen')
+                                            {{ $payment->user->freshmenApplication->first_name }}
+                                            {{ $payment->user->freshmenApplication->middle_name }}
+                                            {{ $payment->user->freshmenApplication->last_name }}
+                                        @elseif ($payment->user->applicant_type == 'Transferee')
+                                            {{ $payment->user->transfereeApplication->first_name }}
+                                            {{ $payment->user->transfereeApplication->middle_name }}
+                                            {{ $payment->user->transfereeApplication->last_name }}
+                                        @endif
                                     </td>
                                     <td
                                         class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6">
@@ -61,7 +63,6 @@
                                             gray>
                                             Option
                                         </x-button>
-
                                     </td>
                                 </tr>
                             @empty

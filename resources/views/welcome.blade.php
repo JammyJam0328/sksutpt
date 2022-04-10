@@ -19,7 +19,7 @@
 </head>
 
 <body x-data="{ mobileNav: false }"
-    class="h-screen antialiased font-poppins">
+    class=" antialiased font-poppins">
     <div class="relative h-full overflow-hidden bg-gray-50">
         <div class="hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full"
             aria-hidden="true">
@@ -123,29 +123,28 @@
                         <div
                             class="hidden space-x-2 md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
                             @guest
-                            <span class="inline-flex rounded-md shadow">
-                                <a href="{{ route('login') }}"
-                                    class="inline-flex items-center px-4 py-2 text-base font-medium text-green-600 bg-white border border-transparent rounded-md hover:bg-gray-50">
-                                    Log in </a>
-                            </span>
-                            <span class="inline-flex rounded-md shadow">
-                                <a href="{{ route('register') }}"
-                                    class="inline-flex items-center px-4 py-2 text-base font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700">
-                                    Register </a>
-                            </span>
+                                <span class="inline-flex rounded-md shadow">
+                                    <a href="{{ route('login') }}"
+                                        class="inline-flex items-center px-4 py-2 text-base font-medium text-green-600 bg-white border border-transparent rounded-md hover:bg-gray-50">
+                                        Log in </a>
+                                </span>
+                                <span class="inline-flex rounded-md shadow">
+                                    <a href="{{ route('register') }}"
+                                        class="inline-flex items-center px-4 py-2 text-base font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700">
+                                        Register </a>
+                                </span>
                             @endguest
                             @auth
-                            <span class="inline-flex rounded-md shadow">
-                                <a href="{{ route('dashboard') }}"
-                                    class="inline-flex items-center px-4 py-2 text-base font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700">
-                                    Dashboard
-                                </a>
-                            </span>
+                                <span class="inline-flex rounded-md shadow">
+                                    <a href="{{ route('dashboard') }}"
+                                        class="inline-flex items-center px-4 py-2 text-base font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700">
+                                        Dashboard
+                                    </a>
+                                </span>
                             @endauth
                         </div>
                     </nav>
                 </div>
-
                 <div x-cloak
                     x-show="mobileNav"
                     x-transition:enter="duration-150 ease-out"
@@ -195,17 +194,17 @@
                                 Us</a>
                         </div>
                         @guest
-                        <a href="{{ route('login') }}"
-                            class="block w-full px-5 py-3 font-medium text-center text-green-600 bg-gray-50 hover:bg-gray-100">
-                            Log in </a>
-                        <a href="{{ route('register') }}"
-                            class="block w-full px-5 py-3 font-medium text-center bg-green-600 text-gray-50 hover:bg-green-700">
-                            Register </a>
+                            <a href="{{ route('login') }}"
+                                class="block w-full px-5 py-3 font-medium text-center text-green-600 bg-gray-50 hover:bg-gray-100">
+                                Log in </a>
+                            <a href="{{ route('register') }}"
+                                class="block w-full px-5 py-3 font-medium text-center bg-green-600 text-gray-50 hover:bg-green-700">
+                                Register </a>
                         @endguest
                         @auth
-                        <a href="{{ route('dashboard') }}"
-                            class="block w-full px-5 py-3 font-medium text-center bg-green-600 text-gray-50 hover:bg-green-700">
-                            Dashboard </a>
+                            <a href="{{ route('dashboard') }}"
+                                class="block w-full px-5 py-3 font-medium text-center bg-green-600 text-gray-50 hover:bg-green-700">
+                                Dashboard </a>
                         @endauth
                     </div>
                 </div>
@@ -220,20 +219,44 @@
                     <p class="max-w-md mx-auto mt-3 text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
                         Province of Sultan Kudarat, 9800, City of Tacurong, Philippines
                     </p>
-                    <div class="max-w-md mx-auto mt-5 sm:flex sm:justify-center md:mt-8">
-                        <div class="rounded-md shadow ">
-                            <a href="#"
-                                class="flex items-center justify-center w-full px-8 py-3 text-base font-medium text-green-600 bg-white border border-transparent rounded-md hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
-                                Tutorials </a>
-                        </div>
-                        <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 ">
-                            <a href="#"
-                                class="flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700 md:py-4 md:text-lg md:px-10">
-                                Requirements </a>
-                        </div>
 
+                    <div class="mt-5 flex justify-center text-left">
+                        <div class="rounded-md bg-yellow-50 p-4 border border-yellow-500 text-start">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <!-- Heroicon name: solid/exclamation -->
+                                    <svg class="h-5 w-5 text-yellow-400"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                        aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="text-sm font-medium text-yellow-800">Attention needed</h3>
+                                    <div class="mt-2 text-sm text-yellow-700">
+                                        <p>
+                                            Pre-registration period is on 𝐀𝐩𝐫𝐢𝐥 𝟏𝟏-𝟐𝟎, 𝟐𝟎𝟐𝟐
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
+                    <div class="flex justify-center mt-5">
+                        <iframe
+                            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FSKSUfbofficial%2Fposts%2F522104776200795&show_text=true&width=500"
+                            width="500"
+                            height="813"
+                            style="border:none;overflow:hidden"
+                            scrolling="no"
+                            frameborder="0"
+                            allowfullscreen="true"
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    </div>
                 </div>
             </main>
         </div>

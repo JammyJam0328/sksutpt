@@ -12,7 +12,7 @@ class Dashboard extends Component
 {
     public function getPendingPayment()
     {
-        return Payment::where('payment_status','pending')->count();
+        return Payment::where('payment_status','to-review')->count();
     }
     public function getTotalUsers()
     {

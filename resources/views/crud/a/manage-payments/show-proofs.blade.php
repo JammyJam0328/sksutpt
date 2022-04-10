@@ -25,31 +25,68 @@
                     </div>
                 </div>
             </div>
+            <div class="mb-2">
+                <div class="p-2 rounded-md border space-y-3">
+                    @if ($this->payment->user->applicant_type == 'Freshmen')
+                        <div>
+                            Full Name: <span class="font-semibold">
+                                {{ $this->payment->user->freshmenApplication->first_name }}
+                                {{ $this->payment->user->freshmenApplication->middle_name }}
+                                {{ $this->payment->user->freshmenApplication->last_name }}</span>
+                        </div>
+                        <div>
+                            Permanent Address:
+                            <span
+                                class="font-semibold">{{ $this->payment->user->freshmenApplication->permanent_address }}</span>
+                        </div>
+                    @else
+                        <div>
+                            Full Name: <span class="font-semibold">
+                                {{ $this->payment->user->transfereeApplication->first_name }}
+                                {{ $this->payment->user->transfereeApplication->middle_name }}
+                                {{ $this->payment->user->transfereeApplication->last_name }}</span>
+                        </div>
+                        <div>
+                            Permanent Address:
+                            <span
+                                class="font-semibold">{{ $this->payment->user->transfereeApplication->permanent_address }}</span>
+                        </div>
+                    @endif
+                    <div class="border-t pt-2">
+                        <x-native-select label="Select Test Center"
+                            wire:model="test_center">
+                            <option value=""
+                                selected> --select-- </option>
+                            @foreach ($examinationTestCenters as $testCenter)
+                                <option value="{{ $testCenter->id }}">{{ $testCenter->testCenter->name }}</option>
+                            @endforeach
+                        </x-native-select>
+                    </div>
+                </div>
+            </div>
             <div>
                 <div class="container grid grid-cols-3 gap-2 mx-auto">
                     @foreach ($this->payment->proofs as $proof)
-                        <div class="w-full rounded">
-                            <img class="duration-150 ease-in-out hover:scale-150"
+                        <div class="w-full rounded-md border">
+                            <img class="duration-150 ease-in-out hover:scale-150  rounded-md"
                                 src="{{ Storage::url($proof->file_name) }}"
                                 alt="image">
                         </div>
                     @endforeach
                 </div>
             </div>
-            @if ($this->payment->payment_status == 'pending')
-                <x-slot name="footer">
-                    <div class="flex items-center justify-between">
-                        <x-button wire:click="rejectPaymentConfirmation"
-                            negative>
-                            Deny
-                        </x-button>
-                        <x-button wire:click="approvePaymentConfirmation"
-                            info>
-                            Approve
-                        </x-button>
-                    </div>
-                </x-slot>
-            @endif
+            <x-slot name="footer">
+                <div class="flex items-center justify-between">
+                    <x-button wire:click="rejectPaymentConfirmation"
+                        negative>
+                        Deny
+                    </x-button>
+                    <x-button wire:click="approvePaymentConfirmation"
+                        info>
+                        Approve
+                    </x-button>
+                </div>
+            </x-slot>
         </div>
     @else
         <div>

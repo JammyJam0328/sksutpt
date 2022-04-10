@@ -650,7 +650,7 @@
             </x-card>
         @elseif(auth()->user()->applicant_state == 'payment_rejected')
             <div>
-                Your payment was rejected.
+                Your application was disapproved due to incompliance with the requirements in payment.
             </div>
         @elseif(auth()->user()->applicant_state == 'select_room')
             <div>

@@ -61,7 +61,7 @@
                         </div>
                         <div class="hidden md:block">
                             <div class="pl-4">
-                                <h1 class="text-2xl font-semibold text-white">SULTAN KUDARAT STATE UNIVERITY</h1>
+                                <h1 class="text-2xl font-semibold text-white">SULTAN KUDARAT STATE UNIVERSITY</h1>
                             </div>
                         </div>
                         <div class="block md:hidden">

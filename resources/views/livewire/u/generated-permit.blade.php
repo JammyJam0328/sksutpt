@@ -9,25 +9,32 @@
     </div>
     <div id="permit">
         <div class="overflow-hidden bg-white border-2 border-gray-600">
-            <div class="flex items-center px-4 py-5 space-x-3 sm:px-6">
-                <div>
-                    <img src="{{ asset('image/sksu1.png') }}"
+            <div class="flex justify-between items-center">
+                <div class="flex items-center px-4 py-5 space-x-3 sm:px-6">
+                    <div>
+                        <img src="{{ asset('image/sksu1.png') }}"
+                            alt="logo"
+                            class="w-16 h-16">
+                    </div>
+                    <div class="text-gray-700 -space-y-1">
+                        <h1 class="text-sm font-semibold">
+                            Republic of the Philippines
+                        </h1>
+                        <h1 class="font-semibold text-green-700 ">
+                            Sultan Kudarat State University
+                        </h1>
+                        <h1 class="text-sm  font-semibold">
+                            Access, EJC Montilla, 9800 City of Tacurong
+                        </h1>
+                        <h1 class="text-sm  font-semibold">
+                            Province of Sultan Kudarat
+                        </h1>
+                    </div>
+                </div>
+                <div class="pr-4">
+                    <img src="{{ asset('image/logo2.png') }}"
                         alt="logo"
                         class="w-16 h-16">
-                </div>
-                <div class="text-gray-700 -space-y-1">
-                    <h1 class="text-sm font-semibold">
-                        Republic of the Philippines
-                    </h1>
-                    <h1 class="font-semibold text-green-700 ">
-                        Sultan Kudarat State University
-                    </h1>
-                    <h1 class="text-sm  font-semibold">
-                        Access, EJC Montilla, 9800 City of Tacurong
-                    </h1>
-                    <h1 class="text-sm  font-semibold">
-                        Province of Sultan Kudarat
-                    </h1>
                 </div>
             </div>
 
@@ -49,6 +56,7 @@
                             <div>
                                 <div class="mt-1 border-b border-gray-700 focus-within:border-indigo-600">
                                     <input type="text"
+                                        disabled
                                         name="name"
                                         id="name"
                                         class="block w-full border-1 border-b border-transparent bg-gray-100  focus:border-indigo-600 focus:ring-0 sm:text-sm">
@@ -60,6 +68,7 @@
                             <div>
                                 <div class="mt-1 border-b border-gray-700 focus-within:border-indigo-600">
                                     <input type="text"
+                                        disabled
                                         name="name"
                                         id="name"
                                         class="block w-full border-0 border-b border-transparent  bg-gray-100 focus:border-indigo-600 focus:ring-0 sm:text-sm">

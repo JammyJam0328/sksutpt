@@ -84,6 +84,15 @@
                             placeholder="Permanent address/Provincial address"
                             wire:model.lazy="permanent_address" />
                     </div>
+                    <div class="sm:col-span-6">
+                        <x-native-select label="Province"
+                            wire:model.lazy="province">
+                            <option value="">Select</option>
+                            @foreach ($provinces as $province)
+                                <option value="{{ $province }}">{{ $province }}</option>
+                            @endforeach
+                        </x-native-select>
+                    </div>
                     <div class="sm:col-span-2">
                         <x-native-select label="Sex"
                             wire:model.lazy="sex">
@@ -196,49 +205,71 @@
                                 </svg>
                             </div>
                         </div>
-                        <x-input label="Upload Photo"
+                        <x-input label="Upload Actual Photo  (Take an actual upon registration)"
                             type="file"
                             placeholder="Upload Photo"
-                            wire:model.debounce.500ms="photo" />
+                            wire:model="photo" />
                     </div>
                     <div class="space-y-2 sm:col-span-6">
-                        <div wire:key="hd_or_good_moral-12345"
-                            class="flex justify-start">
-                            <div wire:loading.remove
-                                wire:target="hd_or_good_moral">
-                                @if ($hd_or_good_moral)
-                                    <img src="{{ \Storage::url($hd_or_good_moral) }}"
-                                        alt="hd_or_good_moral"
-                                        class="h-56 border rounded-md max-h-56">
-                                @endif
-                            </div>
-                            <div wire:loading
-                                wire:target="hd_or_good_moral"
-                                wire:loading.class="animate-pulse">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="w-10 h-10 text-green-700"
-                                    viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path
-                                        d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z" />
-                                    <path d="M9 13h2v5a1 1 0 11-2 0v-5z" />
-                                </svg>
-                            </div>
-                        </div>
                         <x-input label="Upload Honorable Dismissal or Good Moral"
                             type="file"
-                            placeholder="Upload Honorable Dismissal or Good Moral"
-                            wire:model.debounce.500ms="hd_or_good_moral" />
+                            accept="application/pdf"
+                            placeholder="Upload Honorable Dismissal or Good Moral (PDF format)"
+                            wire:model="hd_or_good_moral" />
+                        <span wire:loading
+                            wire:target="hd_or_good_moral"
+                            class="text-gray-600 animat-pulse">Uploading ....</span>
+                        @if ($hd_or_good_moral != '')
+                            <span class="text-green-600">File uploaded (file id : {{ $hd_or_good_moral }})</span>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
         <x-slot name="footer">
-            <div class="flex justify-end">
-                <x-button wire:click="saveConfirmation"
-                    spinner="saveConfirmation"
-                    info>
-                    Save</x-button>
+            <div x-data="{ terms: false }">
+                <div class="mb-2">
+                    <div class="relative flex items-start">
+                        <div class="flex items-center h-5">
+                            <input id="terms"
+                                x-model="terms"
+                                x-on:change="terms ? disClick = true : disClick = false"
+                                aria-describedby="terms-description"
+                                name="terms"
+                                type="checkbox"
+                                class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 rounded">
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label for="comments"
+                                class="font-medium ">
+                                I hereby certify that all information in this registration form is true and correct. I
+                                agree
+                                that any misrepresentation made in this form may cause disqualification in my admission
+                                to
+                                SKSU. Furthermore, by signing of this form, I consent to collection, generation, use,
+                                processing, storage and retention of my personal data by this institution for the
+                                purpose
+                                described in this document, and I do not waive any of my rights under the Data Privacy
+                                Act
+                                of 2012 and other applicable laws.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div x-cloak
+                    x-show="terms"
+                    class="flex justify-end">
+                    <x-button wire:click="saveConfirmation"
+                        spinner="saveConfirmation"
+                        info>
+                        Save</x-button>
+                </div>
+                <div x-show="terms==false"
+                    class="flex justify-end">
+                    <x-button disabled
+                        gray>
+                        Save</x-button>
+                </div>
             </div>
         </x-slot>
     </form>
