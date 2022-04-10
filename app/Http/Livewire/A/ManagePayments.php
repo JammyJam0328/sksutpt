@@ -109,7 +109,7 @@ class ManagePayments extends Component
         $details = [
             'subject' => 'Payment Approved',
             'username' => $this->payment->user->name,
-            'message' => 'Your payment has been approved. Please open the application to select test center',
+            'message' => 'Your payment has been approved. Please open the application and time slot',
         ];
         $this->payment->user->notify(new SendEmailNotification($details));
         $this->notification()->notify([
@@ -147,7 +147,7 @@ class ManagePayments extends Component
         $details = [
             'subject' => 'Payment Rejected',
             'username' => $this->payment->user->name,
-            'message' => 'Sorry, your payment has been rejected.',
+            'message' => 'Sorry,  Your application was disapproved due to incompliance with the requirements in payment.',
         ];
         $this->payment->user->notify(new SendEmailNotification($details));
         $this->notification()->notify([
