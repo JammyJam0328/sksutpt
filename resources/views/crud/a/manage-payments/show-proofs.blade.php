@@ -39,6 +39,11 @@
                             <span
                                 class="font-semibold">{{ $this->payment->user->freshmenApplication->permanent_address }}</span>
                         </div>
+                        <div>
+                            Province:
+                            <span
+                                class="font-semibold">{{ $this->payment->user->freshmenApplication->province }}</span>
+                        </div>
                     @else
                         <div>
                             Full Name: <span class="font-semibold">
@@ -50,6 +55,11 @@
                             Permanent Address:
                             <span
                                 class="font-semibold">{{ $this->payment->user->transfereeApplication->permanent_address }}</span>
+                        </div>
+                        <div>
+                            Province:
+                            <span
+                                class="font-semibold">{{ $this->payment->user->transfereeApplication->province }}</span>
                         </div>
                     @endif
                     <div class="border-t pt-2">
