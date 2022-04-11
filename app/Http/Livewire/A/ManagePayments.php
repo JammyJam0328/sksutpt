@@ -117,7 +117,8 @@ class ManagePayments extends Component
             'description'=>'Payment has been approved',
             'icon'=>'success',
         ]);
-        $this->reset();
+         $this->test_center='';
+         $this->showProofModal=false;
     }
 
     public function rejectPaymentConfirmation()

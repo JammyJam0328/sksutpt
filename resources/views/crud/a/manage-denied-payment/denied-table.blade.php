@@ -59,8 +59,10 @@
                                     </td>
                                     <td
                                         class="relative py-4 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-6">
-                                        <x-button gray>
-                                            Option
+                                        <x-button wire:click="confirmReevaluation({{ $payment->id }})"
+                                            spinner="confirmReevaluation"
+                                            gray>
+                                            Return to Review
                                         </x-button>
                                     </td>
                                 </tr>
