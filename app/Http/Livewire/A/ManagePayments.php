@@ -8,6 +8,8 @@ use App\Models\ExaminationTestCenter;
 use App\Models\Grouping;
 use App\Models\TestCenter;
 use App\Models\Payment;
+use App\Models\FreshmenApplication;
+use App\Models\TransfereeApplication;
 use Notification;
 use App\Notifications\SendEmailNotification;
 use Livewire\WithPagination;
@@ -18,10 +20,18 @@ class ManagePayments extends Component
     public $set_id;
     public $optionModal=false;
     public $showProofModal=false;
+    public $viewApplicationModal=false;
     public $testCenters=[];
     public $examination_id;
     public $examinationTestCenters=[];
     public $test_center;
+    public $tab;
+    public function getApplicationProperty()
+    {
+        $user = Payment::where('id',$this->set_id)->with('user')->first()->user;
+        $this->tab = $user->applicant_type;
+        return  $this->tab =='Freshmen' ? FreshmenApplication::where('user_id',$user->id)->first() : TransfereeApplication::where('user_id',$user->id)->first();
+    }
     public function mount() 
     {
         $this->examination_id=Examination::where('isOpen',1)->first() ? Examination::where('isOpen',1)->first()->id : null;
@@ -39,7 +49,11 @@ class ManagePayments extends Component
         ])
         ->layout('layouts.admin');
     }
-
+    public function showDetails()
+    {
+         $this->optionModal=false;
+        $this->viewApplicationModal=true;
+    }
     public function showOption($id)
     {
         $this->set_id=$id;

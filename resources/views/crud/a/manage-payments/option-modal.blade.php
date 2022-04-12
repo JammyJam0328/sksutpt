@@ -6,7 +6,7 @@
                 <x-button wire:click="showProofs">
                     Show Proofs of Payment
                 </x-button>
-                <x-button>
+                <x-button wire:click="showDetails">
                     Show Application Details
                 </x-button>
             @endif

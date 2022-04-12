@@ -49,6 +49,6 @@
         @include('crud.a.manage-payments.payments-table')
         @include('crud.a.manage-payments.option-modal')
         @include('crud.a.manage-payments.show-proofs')
-
+        @include('crud.a.manage-payments.view-application')
     </x-card>
 </x-admin-page-layout>
