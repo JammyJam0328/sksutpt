@@ -298,6 +298,9 @@ class TransfereeForm extends Component
     }
     public function updatedPhoto()
     {
+        $this->validate([
+            'photo' => 'required|image|mimes:jpeg,png,jpg'
+        ]);
         $this->transfereeApplication->update([
             'photo' => $this->photo->store('f-photo','public'),
         ]);

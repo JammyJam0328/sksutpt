@@ -357,7 +357,9 @@ class FreshmenForm extends Component
     }
     public function updatedPhoto()
     {
-        
+        $this->validate([
+            'photo' => 'required|image|mimes:jpeg,png,jpg'
+        ]);
         $this->freshmenApplication->update([
             'photo'=>$this->photo->store('f-photo','public'),
         ]);

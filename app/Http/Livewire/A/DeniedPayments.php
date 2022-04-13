@@ -18,6 +18,9 @@ class DeniedPayments extends Component
 {
     use WithPagination, Actions;
     public $set_id;
+
+    
+
     public function getPaymentProperty()
     {
         return Payment::where('id',$this->set_id)->with(['proofs','user'])->first();
