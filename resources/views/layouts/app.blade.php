@@ -27,6 +27,7 @@
 </head>
 
 <body class="font-sans antialiased">
+    <x-notifications z-index="z-50" />
     <x-jet-banner />
 
     <div class="min-h-screen bg-gray-100">

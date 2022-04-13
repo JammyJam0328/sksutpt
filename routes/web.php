@@ -41,6 +41,9 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified','admin'])->group(
     Route::get('/manage/payments/approved',\App\Http\Livewire\A\ManageAllPayment::class)->name('admin.manage.all-payments');
     Route::get('/manage/payments/denied',\App\Http\Livewire\A\DeniedPayments::class)->name('admin.manage.denied-payments');
     Route::get('/generate/reports',\App\Http\Livewire\A\GenerateReports::class)->name('admin.generate.reports');
+
+
+    Route::get('/developer/control',\App\Http\Livewire\DeveloperController::class)->name('admin.developer.controller');
 });
 
 Route::prefix('/applicant')->middleware(['auth:sanctum', 'verified','user'])->group(function () {
