@@ -120,12 +120,12 @@ class ManagePayments extends Component
         $this->payment->user->update([
             'applicant_state'=>'select_room',
         ]);
-        $details = [
-            'subject' => 'Payment Approved',
-            'username' => $this->payment->user->name,
-            'message' => 'Your payment has been approved. Please open the application and time slot',
-        ];
-        $this->payment->user->notify(new SendEmailNotification($details));
+        // $details = [
+        //     'subject' => 'Payment Approved',
+        //     'username' => $this->payment->user->name,
+        //     'message' => 'Your payment has been approved. Please open the application and time slot',
+        // ];
+        // $this->payment->user->notify(new SendEmailNotification($details));
         $this->notification()->notify([
             'title'=>'Success',
             'description'=>'Payment has been approved',
@@ -159,12 +159,12 @@ class ManagePayments extends Component
         $this->payment->user()->update([
             'applicant_state'=>'payment_rejected',
         ]);
-        $details = [
-            'subject' => 'Payment Rejected',
-            'username' => $this->payment->user->name,
-            'message' => 'Sorry,  Your application was disapproved due to incompliance with the requirements in payment.',
-        ];
-        $this->payment->user->notify(new SendEmailNotification($details));
+        // $details = [
+        //     'subject' => 'Payment Rejected',
+        //     'username' => $this->payment->user->name,
+        //     'message' => 'Sorry,  Your application was disapproved due to incompliance with the requirements in payment.',
+        // ];
+        // $this->payment->user->notify(new SendEmailNotification($details));
         $this->notification()->notify([
             'title'=>'Success',
             'description'=>'Payment has been rejected',
