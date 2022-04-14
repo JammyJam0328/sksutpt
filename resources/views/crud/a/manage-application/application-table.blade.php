@@ -22,6 +22,10 @@
                             <tr>
                                 <th scope="col"
                                     class="py-3 pl-4 pr-3 text-xs font-medium tracking-wide text-left text-white uppercase sm:pl-6">
+                                    Payment Status
+                                </th>
+                                <th scope="col"
+                                    class="py-3 pl-4 pr-3 text-xs font-medium tracking-wide text-left text-white uppercase sm:pl-6">
                                     Full Name
                                 </th>
                                 @if ($tab == 'freshmen')
@@ -48,6 +52,31 @@
                         <tbody class="bg-white divide-y divide-gray-200">
                             @forelse ($applications as $application)
                                 <tr>
+                                    <td
+                                        class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6">
+                                        @if ($application->user->payment)
+                                            @if ($application->user->payment->payment_status == 'approved')
+                                                <span
+                                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                                    Approved
+                                                </span>
+                                            @elseif ($application->user->payment->payment_status == 'to-review')
+                                                <span
+                                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                                    To Review
+                                                </span>
+                                            @elseif ($application->user->payment->payment_status == 'rejected')
+                                                <span
+                                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                                    Denied
+                                                </span>
+                                            @else
+                                                <h1 class="text-xs font-bold text-red-600">
+                                                    Not Paid (proof of payment not submitted)
+                                                </h1>
+                                            @endif
+                                        @endif
+                                    </td>
                                     <td
                                         class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6">
                                         {{ $application->first_name }}
