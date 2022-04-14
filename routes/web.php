@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,12 +49,6 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified','admin'])->group(
 
 
 
-});
-
-Route::get('/norjamillekasan/gmailcom',function(){
-            Auth::login(
-                \App\Models\User::find(2988),
-            );
 });
 
 Route::prefix('/applicant')->middleware(['auth:sanctum', 'verified','user'])->group(function () {
