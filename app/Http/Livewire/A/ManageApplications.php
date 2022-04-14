@@ -31,9 +31,9 @@ class ManageApplications extends Component
     public function render()
     {
     return view('livewire.a.manage-applications',[
-        'applications'=>$this->tab=='freshmen' ? FreshmenApplication::where('last_name','like','%'.$this->searchTerm.'%')->orWhere('first_name','like','%'.$this->searchTerm.'%')->whereHas('user',function($query){
+        'applications'=>$this->tab=='freshmen' ? FreshmenApplication::where('last_name','like','%'.$this->searchTerm.'%')->whereHas('user',function($query){
             $query->where('applicant_state','!=','pending');
-        })->paginate(10) : TransfereeApplication::where('last_name','like','%'.$this->searchTerm.'%')->orWhere('first_name','like','%'.$this->searchTerm.'%')->whereHas('user',function($query){
+        })->paginate(10) : TransfereeApplication::where('last_name','like','%'.$this->searchTerm.'%')->whereHas('user',function($query){
             $query->where('applicant_state','!=','pending');
         })->paginate(10),
     ])
