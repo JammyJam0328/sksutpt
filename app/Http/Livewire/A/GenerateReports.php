@@ -47,6 +47,7 @@ class GenerateReports extends Component
         $this->permits = Permit::where('grouping_id',$this->selected_grouping)
                                 ->with('user.freshmenApplication')
                                 ->with('user.transfereeApplication')
+                                ->orderBy('chair_number','asc')
                                 ->get();
     }
 }
