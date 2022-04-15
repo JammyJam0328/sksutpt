@@ -116,7 +116,7 @@
                             <a href="#"
                                 class="font-medium text-gray-500 hover:text-gray-900">About</a>
 
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=helpdesktpt@gmail.com"
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=helpdesktpt@sksu.edu.ph"
                                 target="_blank"
                                 class="font-medium text-gray-500 hover:text-gray-900">Email Us</a>
                         </div>
@@ -189,7 +189,7 @@
                             <a href="#"
                                 class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">About</a>
 
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=helpdesktpt@gmail.com"
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=helpdesktpt@sksu.edu.ph"
                                 class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">Email
                                 Us</a>
                         </div>
