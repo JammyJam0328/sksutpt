@@ -20,6 +20,7 @@
         href="{{ mix('css/app.css') }}">
 
     @livewireStyles
+    @wireUiScripts
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}"
@@ -28,6 +29,9 @@
 
 <body class="font-sans antialiased">
     <x-notifications z-index="z-50" />
+    <x-dialog z-index="z-50"
+        blur="md"
+        align="center" />
     <x-jet-banner />
 
     <div class="min-h-screen bg-gray-100">
