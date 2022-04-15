@@ -19,7 +19,7 @@
 </head>
 
 <body x-data="{ mobileNav: false }"
-    class=" antialiased font-poppins">
+    class="antialiased font-poppins">
     <div class="relative h-full overflow-hidden bg-gray-50">
         <div class="hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full"
             aria-hidden="true">
@@ -116,7 +116,7 @@
                             <a href="#"
                                 class="font-medium text-gray-500 hover:text-gray-900">About</a>
 
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=sksutpt2022@gmail.com"
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=helpdesktpt@gmail.com"
                                 target="_blank"
                                 class="font-medium text-gray-500 hover:text-gray-900">Email Us</a>
                         </div>
@@ -189,7 +189,7 @@
                             <a href="#"
                                 class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">About</a>
 
-                            <a href="#"
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=helpdesktpt@gmail.com"
                                 class="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">Email
                                 Us</a>
                         </div>
@@ -220,12 +220,12 @@
                         Province of Sultan Kudarat, 9800, City of Tacurong, Philippines
                     </p>
 
-                    <div class="mt-5 flex justify-center text-left">
-                        <div class="rounded-md bg-yellow-50 p-4 border border-yellow-500 text-start">
+                    <div class="flex justify-center mt-5 text-left">
+                        <div class="p-4 border border-yellow-500 rounded-md bg-yellow-50 text-start">
                             <div class="flex">
                                 <div class="flex-shrink-0">
                                     <!-- Heroicon name: solid/exclamation -->
-                                    <svg class="h-5 w-5 text-yellow-400"
+                                    <svg class="w-5 h-5 text-yellow-400"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20"
                                         fill="currentColor"
