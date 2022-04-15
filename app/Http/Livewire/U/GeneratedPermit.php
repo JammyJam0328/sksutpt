@@ -14,6 +14,9 @@ use App\Models\Permit;
 
 class GeneratedPermit extends Component
 {
+    protected $listeners = [
+        'imageUpdated' => '$refresh',
+    ];
     public $application;
     public function mount()
     {

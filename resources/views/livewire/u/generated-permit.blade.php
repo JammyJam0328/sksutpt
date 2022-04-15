@@ -1,5 +1,6 @@
 <div>
-    <div class="flex justify-end mb-2">
+    <div class="flex justify-end mb-2 space-x-3">
+        @livewire('update-image-on-permit')
         <x-button icon="printer"
             class="noprint"
             x-on:click="window.print()"
@@ -9,24 +10,24 @@
     </div>
     <div id="permit">
         <div class="overflow-hidden bg-white border-2 border-gray-600">
-            <div class="flex justify-between items-center">
+            <div class="flex items-center justify-between">
                 <div class="flex items-center px-4 py-5 space-x-3 sm:px-6">
                     <div>
                         <img src="{{ asset('image/sksu1.png') }}"
                             alt="logo"
                             class="w-16 h-16">
                     </div>
-                    <div class="text-gray-700 -space-y-1">
+                    <div class="-space-y-1 text-gray-700">
                         <h1 class="text-sm font-semibold">
                             Republic of the Philippines
                         </h1>
                         <h1 class="font-semibold text-green-700 ">
                             Sultan Kudarat State University
                         </h1>
-                        <h1 class="text-sm  font-semibold">
+                        <h1 class="text-sm font-semibold">
                             Access, EJC Montilla, 9800 City of Tacurong
                         </h1>
-                        <h1 class="text-sm  font-semibold">
+                        <h1 class="text-sm font-semibold">
                             Province of Sultan Kudarat
                         </h1>
                     </div>
@@ -39,30 +40,30 @@
             </div>
 
             <div class="sm:p-0">
-                <div class="flex  space-x-1 w-full">
-                    <div class="w-1/4 mt-6 p-2 ">
+                <div class="flex w-full space-x-1">
+                    <div class="w-1/4 p-2 mt-6 ">
 
-                        <div class="w-full space-y-3 grid justify-center">
+                        <div class="grid justify-center w-full space-y-3">
                             <img src="{{ Storage::url($application->photo) }}"
-                                class="h-auto max-h-48 w-full border"
+                                class="w-full h-auto border max-h-48"
                                 alt="...">
-                            <div class="bg-gray-200 border text-gray-700 text-center p-2">
+                            <div class="p-2 text-center text-gray-700 bg-gray-200 border">
                                 <h1 class="font-bold">{{ auth()->user()->permit->permit_number }}</h1>
-                                <h1 class="uppercase text-xs font-semibold">Examinee Number</h1>
+                                <h1 class="text-xs font-semibold uppercase">Examinee Number</h1>
                             </div>
                         </div>
-                        <div class="mt-5 bg-gray-100 space-y-2 p-3">
-                            <h1 class="font-bold text-xs">Confirmation :</h1>
+                        <div class="p-3 mt-5 space-y-2 bg-gray-100">
+                            <h1 class="text-xs font-bold">Confirmation :</h1>
                             <div>
                                 <div class="mt-1 border-b border-gray-700 focus-within:border-indigo-600">
                                     <input type="text"
                                         disabled
                                         name="name"
                                         id="name"
-                                        class="block w-full border-1 border-b border-transparent bg-gray-100  focus:border-indigo-600 focus:ring-0 sm:text-sm">
+                                        class="block w-full bg-gray-100 border-b border-transparent border-1 focus:border-indigo-600 focus:ring-0 sm:text-sm">
                                 </div>
                                 <label for="name"
-                                    class="block text-center text-xs font-medium text-gray-700">Signature over printed
+                                    class="block text-xs font-medium text-center text-gray-700">Signature over printed
                                     name</label>
                             </div>
                             <div>
@@ -71,10 +72,10 @@
                                         disabled
                                         name="name"
                                         id="name"
-                                        class="block w-full border-0 border-b border-transparent  bg-gray-100 focus:border-indigo-600 focus:ring-0 sm:text-sm">
+                                        class="block w-full bg-gray-100 border-0 border-b border-transparent focus:border-indigo-600 focus:ring-0 sm:text-sm">
                                 </div>
                                 <label for="name"
-                                    class="block text-center text-xs font-medium text-gray-700">Date</label>
+                                    class="block text-xs font-medium text-center text-gray-700">Date</label>
                             </div>
 
                         </div>
@@ -83,10 +84,10 @@
 
                     <div class="w-full text-gray-700">
                         <div class="border-b-4 border-gray-600">
-                            <h1 class="font-bold text-2xl ">SKSU-TERTIARY PLACEMENT TEST PERMIT</h1>
+                            <h1 class="text-2xl font-bold ">SKSU-TERTIARY PLACEMENT TEST PERMIT</h1>
                         </div>
-                        <h1 class="font-semibold text-xl">Personal Information</h1>
-                        <div class="bg-white text-sm  overflow-hidden sm:rounded-lg space-y-1 w-full mb-2">
+                        <h1 class="text-xl font-semibold">Personal Information</h1>
+                        <div class="w-full mb-2 space-y-1 overflow-hidden text-sm bg-white sm:rounded-lg">
                             <div class="grid grid-cols-6">
                                 <div class="col-span-2">
                                     Date of Registration
@@ -130,13 +131,13 @@
                                     <div class="col-span-6">
                                         <h1 class="font-semibold">Preferred Degree Program :</h1>
                                     </div>
-                                    <div class="col-span-1 flex space-x-2">
+                                    <div class="flex col-span-1 space-x-2">
                                         <span>1<sup>st</sup></span> <span>Priority</span>
                                     </div>
                                     <div class="col-span-5 underline">
                                         : {{ $application->first_choice }}
                                     </div>
-                                    <div class="col-span-1 flex space-x-2">
+                                    <div class="flex col-span-1 space-x-2">
                                         <span>2<sup>nd</sup></span> <span>Priority</span>
                                     </div>
                                     <div class="col-span-5 underline">
@@ -153,7 +154,7 @@
                             </div>
                         </div>
                         <div class="w-full border-t-4 border-gray-600">
-                            <h1 class="font-semibold text-xl">Appointment Details</h1>
+                            <h1 class="text-xl font-semibold">Appointment Details</h1>
                             <div class="grid grid-cols-6">
                                 <div class="col-span-2">
                                     Date of Examination
@@ -187,10 +188,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="w-full border-t-4 border-gray-600 mt-2">
-                            <h1 class="font-semibold text-xl">Important Reminders</h1>
+                        <div class="w-full mt-2 border-t-4 border-gray-600">
+                            <h1 class="text-xl font-semibold">Important Reminders</h1>
                             <div class="w-full">
-                                <ul class="list-decimal pl-4">
+                                <ul class="pl-4 list-decimal">
                                     <li>
                                         All examinees are required to wear facemask, closed shoes, white polo shirt or
                                         shirt, long pants or skirt.
@@ -216,11 +217,11 @@
                 </div>
             </div>
         </div>
-        <div class="border-b-2 border-x-2 border-gray-600 p-2">
+        <div class="p-2 border-b-2 border-gray-600 border-x-2">
             <div class="flex justify-between">
-                <div class="flex items-center space-x-2 text-center justify-center">
+                <div class="flex items-center justify-center space-x-2 text-center">
                     <svg xmlns="http://www.w3.org/2000/svg"
-                        class="h-3 w-3"
+                        class="w-3 h-3"
                         viewBox="0 0 16 16">
                         <path fill="#ECEFF1"
                             d="M2 2h12v12H2z" />
@@ -231,9 +232,9 @@
                     </svg>
                     <span class="text-xs"> guidance@sksu.edu.ph</span>
                 </div>
-                <div class="flex items-center space-x-2 justify-center">
+                <div class="flex items-center justify-center space-x-2">
                     <svg xmlns="http://www.w3.org/2000/svg"
-                        class="h-3 w-3"
+                        class="w-3 h-3"
                         data-name="Ebene 1"
                         viewBox="0 0 1024 1024">
                         <path fill="#1877f2"
@@ -243,9 +244,9 @@
                     </svg>
                     <span class="text-xs"> Sultan Kudarat State University</span>
                 </div>
-                <div class="flex items-center space-x-2 justify-center">
+                <div class="flex items-center justify-center space-x-2">
                     <svg xmlns="http://www.w3.org/2000/svg"
-                        class="h-3 w-3"
+                        class="w-3 h-3"
                         viewBox="0 0 48 48">
                         <g fill="#fff"
                             transform="translate(7.995 -1011.561)">
