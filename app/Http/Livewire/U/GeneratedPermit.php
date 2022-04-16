@@ -16,6 +16,7 @@ class GeneratedPermit extends Component
 {
     protected $listeners = [
         'imageUpdated' => '$refresh',
+        'refresh' => '$refresh',
     ];
     public $application;
     public function mount()

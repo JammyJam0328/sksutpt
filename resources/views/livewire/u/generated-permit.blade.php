@@ -1,5 +1,6 @@
 <div>
     <div class="flex justify-end mb-2 space-x-3">
+        @livewire('update-programs')
         @livewire('update-image-on-permit')
         <x-button icon="printer"
             class="noprint"
