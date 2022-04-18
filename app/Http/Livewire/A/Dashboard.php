@@ -7,12 +7,14 @@ use App\Models\Examination;
 use App\Models\ExaminationTestCenter;
 use App\Models\Payment;
 use App\Models\Grouping;
+use App\Models\TestCenter;
+use App\Models\Campus;
 
 use App\Models\User;
 
 class Dashboard extends Component
 {
-    
+    public $slots_per_campus=[];
     public function getAvailableSlots()
     {
         $slots = 0;
@@ -34,6 +36,11 @@ class Dashboard extends Component
     {
         return User::where('role','user')->count();
     }
+
+    // public function mount()
+    // {
+    //     $this->slots_per_campus = Grouping
+    // }
     public function render()
     {
         return view('livewire.a.dashboard')

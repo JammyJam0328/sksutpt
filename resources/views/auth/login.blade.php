@@ -126,7 +126,7 @@
                                 class="block ml-2 text-sm text-gray-900"> Remember me </label>
                         </div>
                         <div class="text-sm">
-                            <a href="#"
+                            <a href="{{ route('password.request') }}"
                                 class="font-medium text-green-600 hover:text-green-500"> Forgot your password? </a>
                         </div>
                     </div>
