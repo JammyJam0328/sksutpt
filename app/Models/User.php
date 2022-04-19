@@ -31,6 +31,7 @@ class User extends Authenticatable
         'email',
         'password',
         'provider_id',
+        'selected_test_center',
     ];
 
     /**
