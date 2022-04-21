@@ -5,4 +5,7 @@
     <x-card class="space-y-4">
         <livewire:update-extension />
     </x-card>
+    <x-card class="pb-10 space-y-4">
+        <livewire:delete-duplicate />
+    </x-card>
 </div>
