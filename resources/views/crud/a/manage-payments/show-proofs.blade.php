@@ -40,6 +40,11 @@
                                 class="font-semibold">{{ $this->payment->user->freshmenApplication->permanent_address }}</span>
                         </div>
                         <div>
+                            Present Address:
+                            <span
+                                class="font-semibold">{{ $this->payment->user->freshmenApplication->present_address }}</span>
+                        </div>
+                        <div>
                             Province:
                             <span
                                 class="font-semibold">{{ $this->payment->user->freshmenApplication->province }}</span>
@@ -55,6 +60,11 @@
                             Permanent Address:
                             <span
                                 class="font-semibold">{{ $this->payment->user->transfereeApplication->permanent_address }}</span>
+                        </div>
+                        <div>
+                            Present Address:
+                            <span
+                                class="font-semibold">{{ $this->payment->user->transfereeApplication->present_address }}</span>
                         </div>
                         <div>
                             Province:
