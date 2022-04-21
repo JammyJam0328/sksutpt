@@ -25,6 +25,8 @@
                 })"
                 id="page-actions"
                 class="flex space-x-2">
+                <x-input icon="search"
+                    wire:model.debounce.500ms="searchTerm" />
                 <x-button wire:click="$refresh">
                     <svg wire:loading.class="animate-spin fill-green-600"
                         xmlns="http://www.w3.org/2000/svg"

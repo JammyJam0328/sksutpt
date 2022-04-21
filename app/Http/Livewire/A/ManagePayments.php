@@ -26,6 +26,7 @@ class ManagePayments extends Component
     public $examinationTestCenters=[];
     public $test_center;
     public $tab;
+    public $searchTerm='';
     public function getApplicationProperty()
     {
         $user = Payment::where('id',$this->set_id)->with('user')->first()->user;
@@ -45,7 +46,11 @@ class ManagePayments extends Component
     public function render()
     {
         return view('livewire.a.manage-payments',[
-            'payments'=>Payment::where('payment_status','to-review')->with(['user.freshmenApplication','user.transfereeApplication'])->paginate(10),
+            'payments'=>Payment::where('payment_status','to-review')
+            ->whereHas('user',function($q){
+                $q->where('name','like','%'.$this->searchTerm.'%');
+            })
+            ->with(['user.freshmenApplication','user.transfereeApplication'])->paginate(10),
         ])
         ->layout('layouts.admin');
     }
