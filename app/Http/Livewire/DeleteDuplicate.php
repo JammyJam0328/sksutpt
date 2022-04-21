@@ -44,6 +44,5 @@ class DeleteDuplicate extends Component
             'description'=>'Permit Deleted',
             'icon'=>'success',
         ]);
-        $this->user_id='';
     }
 }
