@@ -21,7 +21,7 @@ class DeleteDuplicate extends Component
 
     public function deletePermit($id)
     {
-        $permit = Permit::where('id',$id)->first();
+        $this->permit = Permit::where('id',$id)->first();
          $this->dialog()->confirm([
             'title'       => 'Are you Sure?',
             'description' => 'Are you sure you want to delete this permit?',
