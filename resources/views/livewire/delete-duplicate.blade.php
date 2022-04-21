@@ -1,7 +1,7 @@
 <div>
     <div class="mb-3">
         <x-input label="Search PermitNumber"
-            wire:model.debounce.500ms="permit_number"
+            wire:model.debounce.500ms="user_id"
             icon="search" />
     </div>
     <div>

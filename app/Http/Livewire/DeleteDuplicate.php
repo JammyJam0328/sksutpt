@@ -9,12 +9,12 @@ use WireUi\Traits\Actions;
 class DeleteDuplicate extends Component
 {
     use Actions;
-    public $permit_number='';
+    public $user_id='';
     public $permit;
     public function render()
     {
         return view('livewire.delete-duplicate',[
-            'permits'=>Permit::where('permit_number',$this->permit_number)->with('user.freshmenApplication')
+            'permits'=>Permit::where('user_id',$this->user_id)->with('user.freshmenApplication')
                                 ->with('user.transfereeApplication')->get()
         ]);
     }
@@ -44,6 +44,6 @@ class DeleteDuplicate extends Component
             'description'=>'Permit Deleted',
             'icon'=>'success',
         ]);
-        $this->permit_number='';
+        $this->user_id='';
     }
 }
