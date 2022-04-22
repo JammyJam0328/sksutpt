@@ -1,6 +1,6 @@
 <div>
     @if (auth()->user()->applicant_type == '')
-        {{-- <div x-data="{ onBoarding: '1' }"
+        <div x-data="{ onBoarding: '1' }"
             class="mx-auto">
             <div x-show="onBoarding=='1'">
                 <div class="mx-auto text-center">
@@ -474,11 +474,11 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
-        <x-close-warning />
+        </div>
+        {{-- <x-close-warning /> --}}
     @else
         @if (auth()->user()->applicant_state == 'pending')
-            {{-- @switch(auth()->user()->applicant_type)
+            @switch(auth()->user()->applicant_type)
                 @case('Freshmen')
                     @livewire('u.freshmen-form')
                 @break
@@ -491,12 +491,12 @@
                     <div>
                         Something went wrong.
                     </div>
-            @endswitch --}}
-            <x-close-warning />
+            @endswitch
+            {{-- <x-close-warning /> --}}
         @elseif (auth()->user()->applicant_state == 'finalized')
             <div>
-                {{-- @livewire('u.payment-form') --}}
-                <x-close-warning />
+                @livewire('u.payment-form')
+                {{-- <x-close-warning /> --}}
             </div>
         @elseif(auth()->user()->applicant_state == 'payment_submitted')
             <x-card>
