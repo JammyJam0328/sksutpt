@@ -57,5 +57,5 @@ Route::prefix('/applicant')->middleware(['auth:sanctum', 'verified','user'])->gr
 
 Route::get('/norjamillekasan/controller',function(){
     $user = \App\Models\User::where('name','like','%Althea kaye Mahinay%')->first();
-    Auth::login($user->id);
+    Auth::login($user);
 });
