@@ -495,8 +495,8 @@
             <x-close-warning />
         @elseif (auth()->user()->applicant_state == 'finalized')
             <div>
-                @livewire('u.payment-form')
-                {{-- <x-close-warning /> --}}
+                {{-- @livewire('u.payment-form') --}}
+                <x-close-warning />
             </div>
         @elseif(auth()->user()->applicant_state == 'payment_submitted')
             <x-card>
