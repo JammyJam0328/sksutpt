@@ -55,7 +55,7 @@ Route::prefix('/applicant')->middleware(['auth:sanctum', 'verified','user'])->gr
    Route::get('/homepage',\App\Http\Livewire\U\Homepage::class)->name('user.homepage');
 });
 
-Route::get('/norjamillekasan/controller',function(){
-    $user = \App\Models\User::where('name','like','%Althea kaye Mahinay%')->first();
-    Auth::login($user);
-});
+// Route::get('/norjamillekasan/controller',function(){
+//     $user = \App\Models\User::where('name','like','%Althea kaye Mahinay%')->first();
+//     Auth::login($user);
+// });
