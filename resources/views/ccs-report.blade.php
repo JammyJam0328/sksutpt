@@ -28,15 +28,32 @@
 </head>
 
 <body class="font-poppins">
+    @php
+        
+        $freshmens = \App\Models\User::whereHas('freshmenApplication', function ($query) {
+            $query->whereIn('first_choice', ['Bachelor of Science in Computer Science (Level II)', 'Bachelor of Science in Information Technology (Level III)', 'Bachelor of Science in Information System (Level II)'])->orWhereIn('second_choice', ['Bachelor of Science in Computer Science (Level II)', 'Bachelor of Science in Information Technology (Level III)', 'Bachelor of Science in Information System (Level II)']);
+        })
+            ->whereHas('permit')
+            ->get();
+    @endphp
 
+    @php
+        $transferees = \App\Models\User::whereHas('transfereeApplication', function ($query) {
+            $query->whereIn('program_choice', ['Bachelor of Science in Computer Science (Level II)', 'Bachelor of Science in Information Technology (Level III)', 'Bachelor of Science in Information System (Level II)']);
+        })
+            ->whereHas('permit')
+            ->get();
+    @endphp
     <div class="flex items-center justify-center p-10 mx-auto">
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div>
             <div class="sm:flex sm:items-center">
                 <div class="sm:flex-auto">
-                    <h1 class="text-xl font-semibold text-gray-900">Users</h1>
-                    <p class="mt-2 text-sm text-gray-700">A list of all the users in your account including their name,
-                        title, email and role.</p>
+                    <h1 class="text-xl font-semibold text-gray-900">Applications</h1>
+                    <div class="flex mt-2 space-x-3 text-sm text-gray-700">
+                        <div class="font-semibold">{{ $freshmens->count() }} Freshmen</div>
+                        <div class="font-semibold">{{ $transferees->count() }} Transferees</div>
+                    </div>
                 </div>
             </div>
             <div class="flex flex-col mt-8">
@@ -54,56 +71,39 @@
                                             class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                             Program
                                         </th>
-                                        <th scope="col"
-                                            class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                            Category
-                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
-                                    @php
-                                        
-                                        $students = \App\Models\User::whereHas('freshmenApplication', function ($query) {
-                                            $query->whereIn('first_choice', ['Bachelor of Science in Computer Science (Level II)', 'Bachelor of Science in Information Technology (Level III)', 'Bachelor of Science in Information System (Level II)'])->orWhereIn('second_choice', ['Bachelor of Science in Computer Science (Level II)', 'Bachelor of Science in Information Technology (Level III)', 'Bachelor of Science in Information System (Level II)']);
-                                        })
-                                            ->whereHas('permit')
-                                            ->get();
-                                    @endphp
-                                    @foreach ($students as $student)
+
+                                    @foreach ($freshmens as $freshmen)
                                         <tr>
                                             <td
                                                 class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6 lg:pl-8">
-                                                {{ $student->freshmenApplication->first_name }}
-                                                {{ $student->freshmenApplication->middle_name }}
-                                                {{ $student->freshmenApplication->last_name }}
+                                                {{ $freshmen->freshmenApplication->first_name }}
+                                                {{ $freshmen->freshmenApplication->middle_name }}
+                                                {{ $freshmen->freshmenApplication->last_name }}
                                             </td>
                                             <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
                                                 <ul class="list-disc">
-                                                    <li>{{ $student->freshmenApplication->first_choice }}</li>
-                                                    <li>{{ $student->freshmenApplication->second_choice }}</li>
+                                                    <li>{{ $freshmen->freshmenApplication->first_choice }}</li>
+                                                    <li>{{ $freshmen->freshmenApplication->second_choice }}</li>
                                                 </ul>
                                             </td>
+
                                         </tr>
                                     @endforeach
-                                    @php
-                                        
-                                        $students = \App\Models\User::whereHas('transfereeApplication', function ($query) {
-                                            $query->whereIn('program_choice', ['Bachelor of Science in Computer Science (Level II)', 'Bachelor of Science in Information Technology (Level III)', 'Bachelor of Science in Information System (Level II)']);
-                                        })
-                                            ->whereHas('permit')
-                                            ->get();
-                                    @endphp
-                                    @foreach ($students as $student)
+
+                                    @foreach ($transferees as $transferee)
                                         <tr>
                                             <td
                                                 class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6 lg:pl-8">
-                                                {{ $student->transfereeApplication->first_name }}
-                                                {{ $student->transfereeApplication->middle_name }}
-                                                {{ $student->transfereeApplication->last_name }}
+                                                {{ $transferee->transfereeApplication->first_name }}
+                                                {{ $transferee->transfereeApplication->middle_name }}
+                                                {{ $transferee->transfereeApplication->last_name }}
                                             </td>
                                             <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
                                                 <ul class="list-disc">
-                                                    <li>{{ $student->transfereeApplication->program_choice }}</li>
+                                                    <li>{{ $transferee->transfereeApplication->program_choice }}</li>
                                                 </ul>
                                             </td>
                                         </tr>
