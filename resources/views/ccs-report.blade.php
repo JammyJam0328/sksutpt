@@ -28,9 +28,7 @@
 </head>
 
 <body class="font-poppins">
-    @php
-        $ccs_course = ['Bachelor of Science in Computer Science (Level II)', 'Bachelor of Science in Information Technology (Level III)', 'Bachelor of Science in Information System (Level II)'];
-    @endphp
+
     <div class="flex items-center justify-center p-10 mx-auto">
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div>
