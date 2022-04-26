@@ -28,7 +28,10 @@
 </head>
 
 <body class="font-poppins">
-    <div class="flex mx-auto justify-center items-center p-10">
+    @php
+        $ccs_course = ['Bachelor of Science in Computer Science (Level II)', 'Bachelor of Science in Information Technology (Level III)', 'Bachelor of Science in Information System (Level II)'];
+    @endphp
+    <div class="flex items-center justify-center p-10 mx-auto">
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div>
             <div class="sm:flex sm:items-center">
@@ -38,8 +41,8 @@
                         title, email and role.</p>
                 </div>
             </div>
-            <div class="mt-8 flex flex-col">
-                <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="flex flex-col mt-8">
+                <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block min-w-full py-2 align-middle">
                         <div class="overflow-hidden shadow-sm ring-1 ring-black ring-opacity-5">
                             <table class="min-w-full divide-y divide-gray-300">
@@ -59,9 +62,9 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-gray-200 bg-white">
+                                <tbody class="bg-white divide-y divide-gray-200">
                                     @php
-                                        $ccs_course = ['Bachelor of Science in Computer Science (Level II)', 'Bachelor of Science in Information Technology (Level III)', 'Bachelor of Science in Information System (Level II)'];
+                                        
                                         $students = \App\Models\User::whereHas('freshmenApplication', function ($query) {
                                             $query->whereIn('first_choice', $ccs_course)->orWhereIn('second_choice', $ccs_course);
                                         })
@@ -71,12 +74,12 @@
                                     @foreach ($students as $student)
                                         <tr>
                                             <td
-                                                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">
+                                                class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6 lg:pl-8">
                                                 {{ $student->freshmenApplication->first_name }}
                                                 {{ $student->freshmenApplication->middle_name }}
                                                 {{ $student->freshmenApplication->last_name }}
                                             </td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                            <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
                                                 <ul class="list-disc">
                                                     <li>{{ $student->freshmenApplication->first_choice }}</li>
                                                     <li>{{ $student->freshmenApplication->second_choice }}</li>
@@ -85,7 +88,7 @@
                                         </tr>
                                     @endforeach
                                     @php
-                                        $ccs_course = ['Bachelor of Science in Computer Science (Level II)', 'Bachelor of Science in Information Technology (Level III)', 'Bachelor of Science in Information System (Level II)'];
+                                        
                                         $students = \App\Models\User::whereHas('transfereeApplication', function ($query) {
                                             $query->whereIn('program_choice', $ccs_course);
                                         })
@@ -95,12 +98,12 @@
                                     @foreach ($students as $student)
                                         <tr>
                                             <td
-                                                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">
+                                                class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6 lg:pl-8">
                                                 {{ $student->transfereeApplication->first_name }}
                                                 {{ $student->transfereeApplication->middle_name }}
                                                 {{ $student->transfereeApplication->last_name }}
                                             </td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                            <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
                                                 <ul class="list-disc">
                                                     <li>{{ $student->transfereeApplication->program_choice }}</li>
                                                 </ul>
