@@ -44,9 +44,9 @@
             ->whereHas('permit')
             ->get();
     @endphp
-    <div class="flex items-center justify-center mx-auto">
+    <div class="flex">
         <!-- This example requires Tailwind CSS v2.0+ -->
-        <div class="px-4 sm:px-6 lg:px-8">
+        <div class="px-4 mx-auto sm:px-6 lg:px-8">
             <div class="sm:flex sm:items-center">
                 <div class="sm:flex-auto">
                     <h1 class="text-xl font-semibold text-gray-900">Applications</h1>
