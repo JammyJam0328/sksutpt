@@ -47,7 +47,9 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified','admin'])->group(
     Route::get('/developer/control',\App\Http\Livewire\DeveloperController::class)->name('admin.developer.controller');
     // dummy url
 
-
+    Route::get('/ccs/report',function(){
+        return view('ccs-report');
+    });
 
 });
 
