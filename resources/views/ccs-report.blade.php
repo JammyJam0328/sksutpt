@@ -44,7 +44,7 @@
             ->whereHas('permit')
             ->get();
     @endphp
-    <div class="flex items-center justify-center p-10 mx-auto">
+    <div class="flex items-center justify-center mx-auto">
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div>
             <div class="sm:flex sm:items-center">
@@ -56,7 +56,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col mt-8">
+            <div class="flex flex-col ">
                 <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block min-w-full py-2 align-middle">
                         <div class="overflow-hidden shadow-sm ring-1 ring-black ring-opacity-5">
