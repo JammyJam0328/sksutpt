@@ -64,7 +64,7 @@
                                     @php
                                         
                                         $students = \App\Models\User::whereHas('freshmenApplication', function ($query) {
-                                            $query->whereIn('first_choice', $ccs_course)->orWhereIn('second_choice', $ccs_course);
+                                            $query->whereIn('first_choice', ['Bachelor of Science in Computer Science (Level II)', 'Bachelor of Science in Information Technology (Level III)', 'Bachelor of Science in Information System (Level II)'])->orWhereIn('second_choice', ['Bachelor of Science in Computer Science (Level II)', 'Bachelor of Science in Information Technology (Level III)', 'Bachelor of Science in Information System (Level II)']);
                                         })
                                             ->whereHas('permit')
                                             ->get();
@@ -88,7 +88,7 @@
                                     @php
                                         
                                         $students = \App\Models\User::whereHas('transfereeApplication', function ($query) {
-                                            $query->whereIn('program_choice', $ccs_course);
+                                            $query->whereIn('program_choice', ['Bachelor of Science in Computer Science (Level II)', 'Bachelor of Science in Information Technology (Level III)', 'Bachelor of Science in Information System (Level II)']);
                                         })
                                             ->whereHas('permit')
                                             ->get();

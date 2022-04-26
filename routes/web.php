@@ -48,9 +48,7 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified','admin'])->group(
     // dummy url
 
     Route::get('/ccs/report',function(){
-        return view('ccs-report',[
-            'ccs_course' => ['Bachelor of Science in Computer Science (Level II)', 'Bachelor of Science in Information Technology (Level III)', 'Bachelor of Science in Information System (Level II)'],
-        ]);
+        return view('ccs-report');
     });
 
 });
