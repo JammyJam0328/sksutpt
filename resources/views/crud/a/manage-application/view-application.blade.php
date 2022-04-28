@@ -8,6 +8,12 @@
                     <div>
                         <dl class="sm:divide-y sm:divide-gray-200">
                             <div class="py-4 sm:pb-3 sm:grid sm:grid-cols-3 sm:gap-4">
+                                <dt class="text-sm font-medium text-gray-500">Examinee ID</dt>
+                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                    {{ $this->application->user->permit ? $this->application->user->permit->permit_number : 'N/A' }}
+                                </dd>
+                            </div>
+                            <div class="py-4 sm:pb-3 sm:grid sm:grid-cols-3 sm:gap-4">
                                 <dt class="text-sm font-medium text-gray-500">Full Name</dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                     {{ $this->application->first_name }}

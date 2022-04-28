@@ -44,8 +44,7 @@
             ->whereHas('permit')
             ->get();
     @endphp
-    <div class="flex">
-        <!-- This example requires Tailwind CSS v2.0+ -->
+    <div>
         <div class="px-4 mx-auto sm:px-6 lg:px-8">
             <div class="sm:flex sm:items-center">
                 <div class="sm:flex-auto">
@@ -115,7 +114,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     @livewireScripts
 </body>
