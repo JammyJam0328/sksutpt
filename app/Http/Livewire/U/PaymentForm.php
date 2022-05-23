@@ -28,7 +28,7 @@ class PaymentForm extends Component
     public function savePayment()
     {
         if (count($this->proof_of_payments)<1) {
-            $this->notification()->notify([
+            $this->notification([
                 'title'=>'Error',
                 'description'=>'Please upload at least one proof of payment',
                 'icon'=>'error',
@@ -64,7 +64,7 @@ class PaymentForm extends Component
         auth()->user()->update([
             'applicant_state'=>'payment_submitted',
         ]);
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Success',
             'description'=>'Payment submitted successfully',
             'icon'=>'success',

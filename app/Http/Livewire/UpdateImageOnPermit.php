@@ -39,7 +39,7 @@ class UpdateImageOnPermit extends Component
         ]);
         $this->updatePhotoModal = false;
         $this->new_photo = null;
-        $this->notification()->notify([
+        $this->notification([
             'title' => 'Success!',
             'description' => 'Image successfully updated. Your permit will be refreshed in a few seconds. Please wait.',
             'icon' => 'success',

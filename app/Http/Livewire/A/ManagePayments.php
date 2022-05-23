@@ -83,7 +83,7 @@ class ManagePayments extends Component
         else
         {
             
-            $this->notification()->notify([
+            $this->notification([
                 'title'=>'Failed',
                 'description'=>'No available Slots',
                 'icon'=>'error',
@@ -131,7 +131,7 @@ class ManagePayments extends Component
         //     'message' => 'Your payment has been approved. Please open the application and time slot',
         // ];
         // $this->payment->user->notify(new SendEmailNotification($details));
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Success',
             'description'=>'Payment has been approved',
             'icon'=>'success',
@@ -170,7 +170,7 @@ class ManagePayments extends Component
         //     'message' => 'Sorry,  Your application was disapproved due to incompliance with the requirements in payment.',
         // ];
         // $this->payment->user->notify(new SendEmailNotification($details));
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Success',
             'description'=>'Payment has been rejected',
             'icon'=>'success',

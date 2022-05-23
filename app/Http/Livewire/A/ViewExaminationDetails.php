@@ -38,7 +38,7 @@ class ViewExaminationDetails extends Component
     public function save()
     {
         if(count($this->selectedTestCenters)<1){
-            $this->notification()->notify([
+            $this->notification([
                 'title'=>'Error',
                 'description'=>'Please select at least one test center',
                 'icon'=>'error',
@@ -74,7 +74,7 @@ class ViewExaminationDetails extends Component
         }
         $this->selectedTestCenters=[];
         $this->addTestCenterModal = false;
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Success',
             'description'=>'Test centers added successfully',
             'icon'=>'success',

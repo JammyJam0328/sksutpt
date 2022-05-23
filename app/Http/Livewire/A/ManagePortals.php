@@ -68,7 +68,7 @@ class ManagePortals extends Component
             'createPortalModal',
         ]);
 
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Success!',
             'description'=>'Portal created successfully',
             'icon'=>'success'
@@ -104,7 +104,7 @@ class ManagePortals extends Component
             'edit_school_year',
             'editPortalModal',
         ]);
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Success!',
             'description'=>'Portal updated successfully',
             'icon'=>'success'
@@ -132,7 +132,7 @@ class ManagePortals extends Component
     {
         $this->portal->delete();
 
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Success!',
             'description'=>'Portal deleted successfully',
             'icon'=>'success'

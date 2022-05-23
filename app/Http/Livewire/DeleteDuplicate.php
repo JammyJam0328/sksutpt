@@ -8,7 +8,7 @@ use WireUi\Traits\Actions;
 
 class DeleteDuplicate extends Component
 {
-    use Actions;
+    // use Actions;
     public $user_id='';
     public $permit;
     public function render()
@@ -39,7 +39,7 @@ class DeleteDuplicate extends Component
     public function approveDelete()
     {
         $this->permit->delete();
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Success',
             'description'=>'Permit Deleted',
             'icon'=>'success',

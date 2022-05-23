@@ -70,7 +70,7 @@ class SelectRoom extends Component
             'examination_room'=>$this->grouping->room,
             'chair_number'=>$this->grouping->occupied_slots,
         ]);
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Success',
             'description'=>'You have successfully selected your room',
             'icon'=>'success',

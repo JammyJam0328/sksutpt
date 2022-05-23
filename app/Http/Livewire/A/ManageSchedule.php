@@ -67,7 +67,7 @@ class ManageSchedule extends Component
             'schedule_date'=>'required|date',
         ]);
         if(count($this->selectedTestCenters)<1){
-            $this->notification()->notify([
+            $this->notification([
                 'title'=>'Error!',
                 'description'=>'Please select at least one test center',
                 'icon'=>'error',
@@ -111,7 +111,7 @@ class ManageSchedule extends Component
             ]);
 
         }
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Success!',
             'description'=>'Schedule created successfully',
             'icon'=>'success',

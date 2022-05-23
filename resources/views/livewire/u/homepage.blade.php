@@ -495,12 +495,12 @@
             <x-close-warning />
         @elseif (auth()->user()->applicant_state == 'finalized')
             <div>
-                @livewire('u.payment-form')
-                {{-- <x-close-warning /> --}}
+                {{-- @livewire('u.payment-form') --}}
+                <x-close-warning />
             </div>
         @elseif(auth()->user()->applicant_state == 'payment_submitted')
             <x-card>
-                <div class="flex justify-center">
+                {{-- <div class="flex justify-center">
                     <svg data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg"
                         class="h-52 w-52"
@@ -648,18 +648,24 @@
                     <h1 class="text-xl text-gray-600 animate-pulse">
                         Your payment is under validation. We will notify you once it's verified.
                     </h1>
-                </div>
+                </div> --}}
+                <x-close-warning />
             </x-card>
         @elseif(auth()->user()->applicant_state == 'payment_rejected')
             <div>
-                Your application was disapproved due to incompliance with the requirements in payment.
+                {{-- Your application was disapproved due to incompliance with the requirements in payment. --}}
+                <x-close-warning />
             </div>
         @elseif(auth()->user()->applicant_state == 'select_room')
             <div>
-                @livewire('u.select-room')
+                {{-- @livewire('u.select-room') --}}
+                <x-close-warning />
             </div>
         @elseif(auth()->user()->applicant_state == 'release-permit')
             <div>
+                <div class="mb-12">
+                    @livewire('release-result')
+                </div>
                 @livewire('u.generated-permit')
             </div>
         @endif

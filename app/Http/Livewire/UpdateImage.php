@@ -49,7 +49,7 @@ class UpdateImage extends Component
         ]);
         $this->new_image='';
         $this->selected_id='';
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Image Updated',
             'description'=>'Image has been updated',
             'icon'=>'success',

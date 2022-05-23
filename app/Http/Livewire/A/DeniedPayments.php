@@ -63,7 +63,7 @@ class DeniedPayments extends Component
             'message' => 'Your payment is now being re evaluated. Please wait for the admin to review your payment.',
         ];
         $this->payment->user->notify(new SendEmailNotification($details));
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Success',
             'description'=>'Payment is now returned to review',
             'icon'=>'success',

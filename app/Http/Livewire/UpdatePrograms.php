@@ -77,7 +77,7 @@ class UpdatePrograms extends Component
             'second_choice_campus' => $this->second_selected_campus,
             'second_choice' => $this->second_selected_program,
         ]);
-        $this->notification()->notify([
+        $this->notification([
             'title' => 'Success',
             'description' => 'Programs updated successfully. Your permit will be updated shortly.',
             'icon' => 'success',
@@ -96,7 +96,7 @@ class UpdatePrograms extends Component
             'program_choice_campus' => $this->program_choice_campus,
             'program_choice' => $this->program_choice,
         ]);
-        $this->notification()->notify([
+        $this->notification([
             'title' => 'Success',
             'description' => 'Programs updated successfully',
             'icon' => 'success',

@@ -19,8 +19,7 @@
                     <h3 class="text-sm font-medium text-yellow-800">Attention needed</h3>
                     <div class="mt-2 text-sm text-yellow-700">
                         <p>
-                            Good day! This is inform you that the slot is full but we are re-evaluating for you to
-                            be able to avail one slot for your pre registration application.
+                            Examination is over.
                         </p>
                     </div>
                 </div>

@@ -56,7 +56,7 @@ class ManageExamination extends Component
             'school_year'=>'required',
         ]);
         $this->createExamination();
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Success',
             'description'=>'Examination created successfully',
             'icon'=>'success',
@@ -234,7 +234,7 @@ class ManageExamination extends Component
             'date'=>$this->edit_date,
             'school_year'=>$this->edit_school_year,
         ]);
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Success',
             'description'=>'Examination updated successfully',
             'icon'=>'success',
@@ -261,7 +261,7 @@ class ManageExamination extends Component
     public function delete()
     {
         $this->examination->delete();
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Success',
             'description'=>'Examination deleted successfully',
             'icon'=>'success',
@@ -286,17 +286,16 @@ class ManageExamination extends Component
     public function openExamination()
     {
         if ($this->examination->examination_test_centers_count<1) {
-            $this->notification()->notify([
+            $this->notification([
                 'title'=>'Error',
                 'description'=>'Examination has no test centers',
                 'icon'=>'error',
             ]);
-           
         }else{
            $this->examination->update([
                 'isOpen'=>true,
             ]);
-            $this->notification()->notify([
+            $this->notification([
                 'title'=>'Success',
                 'description'=>'Examination opened successfully',
                 'icon'=>'success',
@@ -325,7 +324,7 @@ class ManageExamination extends Component
         $this->examination->update([
             'isOpen'=>false,
         ]);
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Success',
             'description'=>'Examination closed successfully',
             'icon'=>'success',

@@ -53,7 +53,7 @@ class UpdateExtension extends Component
          $this->application->update([
             'extension'=>'',
         ]);
-        $this->notification()->notify([
+        $this->notification([
             'title'=>'Extension Cleared',
             'description'=>'Extension has been cleared',
             'icon'=>'success',

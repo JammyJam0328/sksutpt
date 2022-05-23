@@ -17,11 +17,11 @@
                         placeholder="Schedule of the examination" />
                 </div>
                 <div class="col-span-1 sm:col-span-2">
-                    <x-select label="School Year"
-                        wire:model.defer="school_year"
+                    <x-native-select label="School Year"
                         placeholder="Select School Year"
                         :options="['2022-2023', '2023-2024', '2024-2025', '2025-2026']"
                         wire:model.defer="school_year" />
+
                 </div>
             </div>
             <x-slot name="footer">
