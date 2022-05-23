@@ -1,4 +1,4 @@
-<div>
+<div class="noprint">
     {{-- <div class="flex justify-end mb-2 space-x-3">
         @livewire('update-programs')
         @livewire('update-image-on-permit')
@@ -9,7 +9,7 @@
             Print
         </x-button>
     </div> --}}
-    <div id="permit">
+    <div>
         <div class="overflow-hidden bg-white border-2 border-gray-600">
             <div class="flex items-center justify-between">
                 <div class="flex items-center px-4 py-5 space-x-3 sm:px-6">
