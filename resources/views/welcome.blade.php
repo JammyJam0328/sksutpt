@@ -239,7 +239,7 @@
                                     <h3 class="text-sm font-medium text-yellow-800">Attention needed</h3>
                                     <div class="mt-2 text-sm text-yellow-700">
                                         <p>
-                                            Pre-registration period is on 𝐀𝐩𝐫𝐢𝐥 𝟏𝟏-𝟐𝟎, 𝟐𝟎𝟐𝟐
+                                            Result is out.
                                         </p>
                                     </div>
                                 </div>
