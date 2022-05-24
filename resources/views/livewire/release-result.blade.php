@@ -57,11 +57,11 @@
                 </x-button>
             </div>
             <div x-show="prevent==false"
-                class="flex flex-col mt-7">
+                class="flex flex-col mt-5">
                 <div class="flex items-end space-x-2 space-y-2 ">
                     <div>
                         <img src="{{ Storage::url($application->photo) }}"
-                            class="h-auto border max-h-32"
+                            class="h-32 border max-h-32"
                             alt="...">
                     </div>
                     <div class="grid space-y-1 text-xs">
@@ -87,7 +87,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="mt-5 -mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block min-w-full py-1 align-middle md:px-6 lg:px-8">
                         <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
                             <table class="min-w-full divide-y divide-gray-300">
