@@ -58,7 +58,7 @@
             </div>
             <div x-show="prevent==false"
                 class="flex flex-col mt-7">
-                <div class="space-y-2">
+                {{-- <div class="space-y-2">
                     <div>
                         <img src="{{ Storage::url($application->photo) }}"
                             class="h-auto border max-h-48"
@@ -84,7 +84,8 @@
                             </div>
                         @endif
                     </div>
-                </div>
+                </div> --}}
+                {{ auth()->user()->applicant_type }}
                 <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block min-w-full py-1 align-middle md:px-6 lg:px-8">
                         <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">

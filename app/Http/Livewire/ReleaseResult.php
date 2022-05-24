@@ -17,7 +17,7 @@ class ReleaseResult extends Component
     public function mount()
     {
         $this->examinee_id = auth()->user()->permit->permit_number;
-         if(auth()->user()->applicant_type == 'freshmen'){
+        if(auth()->user()->applicant_type == 'freshmen'){
             $this->application = FreshmenApplication::where('user_id', auth()->user()->id)->first();
         }else{
             $this->application = TransfereeApplication::where('user_id', auth()->user()->id)->first();
