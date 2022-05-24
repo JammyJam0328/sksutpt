@@ -24,6 +24,9 @@
                         <h1 class="text-xs font-semibold">
                             Province of Sultan Kudarat
                         </h1>
+                        <h1 class="text-xs font-semibold">
+                            Tertiary Placement Test Result
+                        </h1>
                     </div>
                 </div>
                 <div id="print-verified"
@@ -57,26 +60,26 @@
                 class="flex flex-col mt-7">
                 <div class="space-y-2">
                     <div>
-                        {{-- <img src="{{ Storage::url($this->application->photo) }}"
+                        <img src="{{ Storage::url($application->photo) }}"
                             class="w-full h-auto border max-h-48"
-                            alt="..."> --}}
+                            alt="...">
                     </div>
                     <div class="flex items-end w-full pb-4 space-x-2">
-                        <h1>Name : {{ $this->application->first_name }} {{ $this->application->middle_name }}
-                            {{ $this->application->last_name }}
+                        <h1>Name : {{ $application->first_name }} {{ $application->middle_name }}
+                            {{ $application->last_name }}
                         </h1>
                     </div>
                     <div class="flex items-end w-full pb-4 space-x-2">
                         @if (auth()->user()->applicant_type == 'freshmen')
                             <div class="grid space-y-1">
-                                <h1>First Choice : {{ $this->application->firs_choice }}
+                                <h1>First Choice : {{ $application->firs_choice }}
                                 </h1>
-                                <h1>Second Choice : {{ $this->application->firs_choice }}
+                                <h1>Second Choice : {{ $application->firs_choice }}
                                 </h1>
                             </div>
                         @else
                             <div>
-                                <h1>Program Choice : {{ $this->application->firs_choice }}
+                                <h1>Program Choice : {{ $application->firs_choice }}
                                 </h1>
                             </div>
                         @endif

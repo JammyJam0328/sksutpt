@@ -9,16 +9,19 @@ use App\Models\FreshmenApplication;
 use App\Models\TransfereeApplication;
 class ReleaseResult extends Component
 {
-     public function getApplicationProperty()
-    {
-        return auth()->user()->applicant_type=='freshmen' ? FreshmenApplication::where('user_id',auth()->user()->id)->first() : TransfereeApplication::where('user_id',auth()->user()->id)->first();
-    }
+    
     public $examinee_id="";
     public $print_verified=false;
     public $name='';
+    public $application;
     public function mount()
     {
         $this->examinee_id = auth()->user()->permit->permit_number;
+         if(auth()->user()->applicant_type == 'Freshmen'){
+            $this->application = FreshmenApplication::where('user_id', auth()->user()->id)->first();
+        }else{
+            $this->application = TransfereeApplication::where('user_id', auth()->user()->id)->first();
+        }
     }
     public function render()
     {
