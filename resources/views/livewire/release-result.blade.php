@@ -61,10 +61,10 @@
                 <div class="flex items-end space-x-2 space-y-2 ">
                     <div>
                         <img src="{{ Storage::url($application->photo) }}"
-                            class="h-auto border max-h-48"
+                            class="h-auto border max-h-32"
                             alt="...">
                     </div>
-                    <div class="grid space-y-1">
+                    <div class="grid space-y-1 text-xs">
                         <div class="flex items-end w-full space-x-2">
                             <h1>Name : {{ $application->first_name }} {{ $application->middle_name }}
                                 {{ $application->last_name }}
