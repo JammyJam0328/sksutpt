@@ -57,9 +57,9 @@
                 class="flex flex-col mt-7">
                 <div class="space-y-2">
                     <div>
-                        <img src="{{ Storage::url($this->application->photo) }}"
+                        {{-- <img src="{{ Storage::url($this->application->photo) }}"
                             class="w-full h-auto border max-h-48"
-                            alt="...">
+                            alt="..."> --}}
                     </div>
                     <div class="flex items-end w-full pb-4 space-x-2">
                         <h1>Name : {{ $this->application->first_name }} {{ $this->application->middle_name }}
