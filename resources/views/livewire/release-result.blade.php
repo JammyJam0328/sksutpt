@@ -58,31 +58,33 @@
             </div>
             <div x-show="prevent==false"
                 class="flex flex-col mt-7">
-                <div class="space-y-2">
+                <div class="flex items-end space-x-2 space-y-2 ">
                     <div>
                         <img src="{{ Storage::url($application->photo) }}"
                             class="h-auto border max-h-48"
                             alt="...">
                     </div>
-                    <div class="flex items-end w-full pb-4 space-x-2">
-                        <h1>Name : {{ $application->first_name }} {{ $application->middle_name }}
-                            {{ $application->last_name }}
-                        </h1>
-                    </div>
-                    <div class="flex items-end w-full pb-4 space-x-2">
-                        @if (auth()->user()->applicant_type == 'Freshmen')
-                            <div class="grid space-y-1">
-                                <h1>First Choice : {{ $application->firs_choice }}
-                                </h1>
-                                <h1>Second Choice : {{ $application->firs_choice }}
-                                </h1>
-                            </div>
-                        @else
-                            <div>
-                                <h1>Program Choice : {{ $application->program_choice }}
-                                </h1>
-                            </div>
-                        @endif
+                    <div class="grid space-y-1">
+                        <div class="flex items-end w-full space-x-2">
+                            <h1>Name : {{ $application->first_name }} {{ $application->middle_name }}
+                                {{ $application->last_name }}
+                            </h1>
+                        </div>
+                        <div class="flex items-end w-full space-x-2">
+                            @if (auth()->user()->applicant_type == 'Freshmen')
+                                <div class="grid space-y-1">
+                                    <h1>First Choice : {{ $application->first_choice }}
+                                    </h1>
+                                    <h1>Second Choice : {{ $application->second_choice }}
+                                    </h1>
+                                </div>
+                            @else
+                                <div>
+                                    <h1>Program Choice : {{ $application->program_choice }}
+                                    </h1>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
                 <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
