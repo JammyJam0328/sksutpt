@@ -61,7 +61,7 @@
                 <div class="space-y-2">
                     <div>
                         <img src="{{ Storage::url($application->photo) }}"
-                            class="w-full h-auto border max-h-48"
+                            class="h-auto border max-h-48"
                             alt="...">
                     </div>
                     <div class="flex items-end w-full pb-4 space-x-2">
