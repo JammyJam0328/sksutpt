@@ -55,9 +55,31 @@
             </div>
             <div x-show="prevent==false"
                 class="flex flex-col mt-7">
-                <div>
+                <div class="space-y-2">
+                    <div>
+                        <img src="{{ Storage::url($this->application->photo) }}"
+                            class="w-full h-auto border max-h-48"
+                            alt="...">
+                    </div>
                     <div class="flex items-end w-full pb-4 space-x-2">
-                        <h1>Name :</h1>
+                        <h1>Name : {{ $this->application->first_name }} {{ $this->application->middle_name }}
+                            {{ $this->application->last_name }}
+                        </h1>
+                    </div>
+                    <div class="flex items-end w-full pb-4 space-x-2">
+                        @if (auth()->user()->applicant_type == 'freshmen')
+                            <div class="grid space-y-1">
+                                <h1>First Choice : {{ $this->application->firs_choice }}
+                                </h1>
+                                <h1>Second Choice : {{ $this->application->firs_choice }}
+                                </h1>
+                            </div>
+                        @else
+                            <div>
+                                <h1>Program Choice : {{ $this->application->firs_choice }}
+                                </h1>
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -281,7 +303,8 @@
                                                 class="py-1 pl-4 pr-3 text-xs font-semibold text-left text-gray-900 sm:pl-6">
                                                 Performance</th>
                                             <th scope="col"
-                                                class="px-3 py-1 text-xs font-semibold text-left text-gray-900">Remarks
+                                                class="px-3 py-1 text-xs font-semibold text-left text-gray-900">
+                                                Remarks
                                             </th>
                                         </tr>
                                     </thead>
@@ -338,7 +361,8 @@
                 </div>
                 <div class="ml-3">
                     <h3 class="text-sm font-medium text-red-800">
-                        Please be informed that the scoring machine of SKSU TPT cannot recognize your answer sheet due
+                        Please be informed that the scoring machine of SKSU TPT cannot recognize your answer sheet
+                        due
                         to either of the following reasons:
                     </h3>
                     <div class="mt-2 text-sm text-red-700">
