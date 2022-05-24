@@ -338,19 +338,35 @@
                 </div>
                 <div class="ml-3">
                     <h3 class="text-sm font-medium text-red-800">
-                        Reason why you are getting this message:
+                        Please be informed that the scoring machine of SKSU TPT cannot recognize your answer sheet due
+                        to either of the following reasons:
                     </h3>
                     <div class="mt-2 text-sm text-red-700">
                         <ul role="list"
                             class="pl-5 space-y-1 list-disc">
                             <li>
-                                You failed to follow instructions during the test.
+                                Duplication of examinee ID number
                             </li>
                             <li>
-                                The examinee number on your test paper is wrong/invalid.
+                                Incorrect marking
+                            </li>
+                            <li>
+                                Light shaded marking
+                            </li>
+                            <li>
+                                Two or more answers shaded answers in one item
+                            </li>
+                            <li>
+                                Spoiled answer sheet
+                            </li>
+                            <li>
+                                Crumpled answer sheet
                             </li>
                         </ul>
                     </div>
+                    <h3 class="mt-2 text-sm font-medium text-red-800">
+                        Therefore, your examination is considered invalid.
+                    </h3>
                 </div>
             </div>
         </div>
