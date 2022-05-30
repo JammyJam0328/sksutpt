@@ -34,7 +34,7 @@ class ReportResultDashboard extends Component
     {
         foreach($this->passersScores as $passer){
             if ($passer->examinee_id == $examinee_id){
-                 return $passer;
+                 return $passer->overall_score;
             }
         }
     }

@@ -103,10 +103,7 @@
                                                         @endif
                                                     </td>
                                                     <td class="py-2 text-xs text-left text-gray-500 whitespace-nowrap">
-                                                        @php
-                                                            $scores = $this->getScore($application->permit_number);
-                                                        @endphp
-                                                        @dump($scores->overall_score)
+                                                        {{ $this->getScore($application->permit_number) }}
                                                     </td>
                                                 </tr>
                                             @endforeach
