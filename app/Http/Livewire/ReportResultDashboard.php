@@ -31,15 +31,15 @@ class ReportResultDashboard extends Component
                         ->with(['user.freshmenApplication','user.TransfereeApplication'])->get();
                         return $applications;
     }
-
+    public $passersScores=[];
     public function getPassersScores()
     {
-       return Result::where('overall_score','>=','520')->get();
+       $this->passersScores = Result::where('overall_score','>=','520')->get();
     }
 
     public function getScore($examinee_id)
     {
-        $passers=$this->getPassersScores();
+        $passers=$this->passersScores;
         $passers_scores=[];
         foreach($passers as $passer){
             if ($passer->examinee_id == $examinee_id){
