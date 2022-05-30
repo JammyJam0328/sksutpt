@@ -28,6 +28,7 @@ class ReportResultDashboard extends Component
     {
         $applications = Permit::whereIn('permit_number', $this->passers)
                         ->with(['user.freshmenApplication','user.TransfereeApplication'])->get();
+                        return $applications;
     }
     public function mount()
     {
