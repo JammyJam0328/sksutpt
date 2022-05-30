@@ -10,9 +10,9 @@
     <x-card title="Count : {{ count($applications) }}">
         <x-slot name="action">
             <div class="flex space-x-3">
-                <div id="loading">
+                <div class="flex justify-center items-center pr-3">
                     <div wire:loading>
-                        Loading . . .
+                        <span class="animate-bounce">Loading ...</span>
                     </div>
                 </div>
                 <x-native-select wire:model="per_campus">
@@ -103,7 +103,15 @@
                                                         @endif
                                                     </td>
                                                     <td class="py-2 text-xs text-left text-gray-500 whitespace-nowrap">
-                                                        {{ $this->getScore($application->permit_number) }}
+                                                        @if ($this->getScore($application->permit_number) == '520')
+                                                            Waiting List |
+                                                        @endif
+                                                        @if ($this->getScore($application->permit_number) >= '526')
+                                                            Qualified for Non-Board Courses |
+                                                        @endif
+                                                        @if ($this->getScore($application->permit_number) >= '576')
+                                                            Qualified for Board Courses
+                                                        @endif
                                                     </td>
                                                 </tr>
                                             @endforeach
