@@ -7,7 +7,7 @@
         document.body.innerHTML = originalContents;
     }
 }">
-    <x-card>
+    <x-card title="Count : {{ count($applications) }}">
         <x-slot name="action">
             <div class="flex space-x-3">
                 <x-native-select wire:model="per_campus">
