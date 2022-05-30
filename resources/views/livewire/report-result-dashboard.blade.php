@@ -69,7 +69,7 @@
                                         @foreach ($applications as $application)
                                             <tr>
                                                 <td
-                                                    class="py-4 pl-4 pr-3 text-xs font-medium text-gray-900 whitespace-nowrap sm:pl-6">
+                                                    class="py-4 pl-4 pr-3 text-xs font-medium text-gray-900 whitespace-nowrap ">
                                                     @if ($application->user->applicant_type == 'Freshmen')
                                                         {{ $application->user->freshmenApplication->last_name }},
                                                         {{ $application->user->freshmenApplication->first_name }}
@@ -80,35 +80,28 @@
                                                         {{ $application->user->transfereeApplication->middle_name }}
                                                     @endif
                                                 </td>
-                                                <td class="px-3 py-4 text-xs text-gray-500 whitespace-nowrap">
+                                                <td class="py-4 text-xs text-gray-500 whitespace-nowrap">
                                                     @if ($application->user->applicant_type == 'Freshmen')
                                                         {{ $application->user->freshmenApplication->first_choice }}
                                                     @else
                                                         {{ $application->user->transfereeApplication->program_choice }},
                                                     @endif
                                                 </td>
-                                                <td class="px-3 py-4 text-xs text-gray-500 whitespace-nowrap">
+                                                <td class="py-2 text-xs text-gray-500 whitespace-nowrap">
                                                     @php
                                                         $scores = $this->getScore($application->permit_number);
                                                     @endphp
-                                                    @if ($scores->overall_score == '520')
-                                                        <span
-                                                            class="inline-flex text-xs items-center px-3.5 py-1 rounded-full  font-medium bg-gray-100 text-gray-800">
-                                                            Waiting List
-                                                        </span>
-                                                    @endif
-                                                    @if ($scores->overall_score >= '526')
-                                                        <span
-                                                            class="inline-flex text-xs items-center px-3.5 py-1 rounded-full  font-medium bg-yellow-100 text-yellow-800">
-                                                            Qualified for Non-Board Courses
-                                                        </span>
-                                                    @endif
-                                                    @if ($scores->overall_score >= '576')
-                                                        <span
-                                                            class="inline-flex items-center px-3.5 py-1 rounded-full  font-medium bg-green-100 text-green-800">
+                                                    <div>
+                                                        @if ($scores->overall_score == '520')
+                                                            Waiting List |
+                                                        @endif
+                                                        @if ($scores->overall_score >= '526')
+                                                            Qualified for Non-Board Courses |
+                                                        @endif
+                                                        @if ($scores->overall_score >= '576')
                                                             Qualified for Board Courses
-                                                        </span>
-                                                    @endif
+                                                        @endif
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach
