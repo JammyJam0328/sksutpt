@@ -1,5 +1,5 @@
 <div x-data="{
-     printDiv() {
+    printDiv() {
         const printContents = document.getElementById('print_only').innerHTML;
         const originalContents = document.body.innerHTML;
         document.body.innerHTML = printContents;
@@ -22,7 +22,8 @@
                         <option value="{{ $program->name }}">{{ $program->name }}</option>
                     @endforeach
                 </x-native-select>
-                <x-button icon="printer" x-on:click="printDiv()" />
+                <x-button icon="printer"
+                    x-on:click="printDiv()" />
             </div>
         </x-slot>
         <div id="print_only">
@@ -51,7 +52,7 @@
                 </div>
 
             </div>
-            <div class="mt-10">
+            <div class="mt-4">
                 <div>
                     <div class="flex flex-col">
                         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -78,12 +79,12 @@
                                             @foreach ($applications as $application)
                                                 <tr>
                                                     <td
-                                                        class="py-4 pl-4 pr-3 text-xs font-medium text-left text-gray-900 whitespace-nowrap ">
+                                                        class="py-4 uppercase pl-4 pr-3 text-xs font-medium text-left text-gray-900 whitespace-nowrap ">
                                                         @if ($application->user->applicant_type == 'Freshmen')
                                                             {{ $application->user->freshmenApplication->last_name }},
                                                             {{ $application->user->freshmenApplication->first_name }}
                                                             {{ $application->user->freshmenApplication->middle_name }}
-                                                            @else
+                                                        @else
                                                             {{ $application->user->transfereeApplication->last_name }},
                                                             {{ $application->user->transfereeApplication->first_name }}
                                                             {{ $application->user->transfereeApplication->middle_name }}
@@ -92,7 +93,7 @@
                                                     <td class="py-4 text-xs text-left text-gray-500 whitespace-nowrap">
                                                         @if ($application->user->applicant_type == 'Freshmen')
                                                             {{ $application->user->freshmenApplication->first_choice }}
-                                                            @else
+                                                        @else
                                                             {{ $application->user->transfereeApplication->program_choice }},
                                                         @endif
                                                     </td>
