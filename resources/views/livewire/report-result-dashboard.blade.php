@@ -10,6 +10,11 @@
     <x-card title="Count : {{ count($applications) }}">
         <x-slot name="action">
             <div class="flex space-x-3">
+                <div id="loading">
+                    <div wire:loading>
+                        Loading . . .
+                    </div>
+                </div>
                 <x-native-select wire:model="per_campus">
                     <option value="">All Campuses</option>
                     @foreach (\App\Models\Campus::get() as $campus)
@@ -101,7 +106,7 @@
                                                         @php
                                                             $scores = $this->getScore($application->permit_number);
                                                         @endphp
-                                                        @dump($scores)
+                                                        @dump($scores->overall_score)
                                                     </td>
                                                 </tr>
                                             @endforeach
