@@ -65,4 +65,9 @@ class ReportResultDashboard extends Component
        
         return view('livewire.report-result-dashboard');
     }
+
+    public function updatedPerCampus()
+    {
+      $this->first_choice = "";
+    }
 }
