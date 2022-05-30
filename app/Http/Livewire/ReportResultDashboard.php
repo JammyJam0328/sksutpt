@@ -16,7 +16,7 @@ use App\Models\Result;
 
 class ReportResultDashboard extends Component
 {
-    public $per_campus="1";
+    public $per_campus="";
     public $first_choice="";
     public $applications=[];
     public $passers =[];
@@ -37,19 +37,32 @@ class ReportResultDashboard extends Component
     }
     public function render()
     {
-        $this->applications = $this->getApplications() == null ? [] : $this->getApplications();
-        return view('livewire.report-result-dashboard');
-    }
-    
-    public function updatedFirstChoice()
-    {
-           $this->applications = Permit::whereIn('permit_number', $this->passers)
+
+        if ($this->per_campus == "") {
+            $this->applications = $this->getApplications();
+        }else{
+            if ($this->first_choice == "") {
+                $this->applications = Permit::whereIn('permit_number', $this->passers)
+                                ->whereHas('user.freshmenApplication', function($query) {
+                                    $query->where('first_choice_campus','like',$this->per_campus);
+                                })
+                                ->orWhereHas('user.transfereeApplication', function($query) {
+                                    $query->where('program_choice_campus','like',$this->per_campus);
+                                })
+                        ->with(['user.freshmenApplication','user.transfereeApplication'])->get();
+            }else{
+                $this->applications = Permit::whereIn('permit_number', $this->passers)
                                 ->whereHas('user.freshmenApplication', function($query) {
                                     $query->where('first_choice','like','%'.$this->first_choice.'%');
                                 })
                                 ->orWhereHas('user.transfereeApplication', function($query) {
                                     $query->where('program_choice','like','%'.$this->first_choice.'%');
                                 })
-                        ->with(['user.freshmenApplication','user.TransfereeApplication'])->get();
+                        ->with(['user.freshmenApplication','user.transfereeApplication'])->get();
+            }
+          
+        }
+       
+        return view('livewire.report-result-dashboard');
     }
 }
