@@ -39,12 +39,9 @@ class ReportResultDashboard extends Component
 
     public function getScore($examinee_id)
     {
-        $passers=$this->passersScores;
-        $passers_scores;
-        foreach($passers as $passer){
+        foreach($this->passersScores as $passer){
             if ($passer->examinee_id == $examinee_id){
-                $passers_scores=$passer;
-                 return $passers_scores;
+                 return $passer;
             }
         }
     }
@@ -52,12 +49,12 @@ class ReportResultDashboard extends Component
 
     public function mount()
     {
-       
+        $this->passersScores = Result::where('overall_score','>=','520')->get();
         $this->getPassers();
     }
     public function render()
     {
-         $this->passersScores = Result::where('overall_score','>=','520')->get();
+       
         $this->passersScores = Result::where('overall_score','>=','520')->get();
         if ($this->per_campus == "") {
             $this->applications = $this->getApplications();
