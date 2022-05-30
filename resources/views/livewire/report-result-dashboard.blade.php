@@ -3,11 +3,13 @@
         <x-slot name="action">
             <div class="flex space-x-3">
                 <x-native-select wire:model="per_campus">
+                    <option value="">All Campuses</option>
                     @foreach (\App\Models\Campus::get() as $campus)
                         <option value="{{ $campus->id }}">{{ $campus->name }}</option>
                     @endforeach
                 </x-native-select>
-                <x-native-select>
+                <x-native-select wire:model="first_choice">
+                    <option value="">All Program</option>
                     @foreach (\App\Models\Program::where('campus_id', $per_campus)->get() as $program)
                         <option value="{{ $program->id }}">{{ $program->name }}</option>
                     @endforeach
@@ -55,7 +57,7 @@
                                             </th>
                                             <th scope="col"
                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                First Choice
+                                                Program
                                             </th>
                                             <th scope="col"
                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
@@ -67,7 +69,7 @@
                                         @foreach ($applications as $application)
                                             <tr>
                                                 <td
-                                                    class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-6">
+                                                    class="py-4 pl-4 pr-3 text-xs font-medium text-gray-900 whitespace-nowrap sm:pl-6">
                                                     @if ($application->user->applicant_type == 'Freshmen')
                                                         {{ $application->user->freshmenApplication->last_name }},
                                                         {{ $application->user->freshmenApplication->first_name }}
@@ -78,14 +80,14 @@
                                                         {{ $application->user->transfereeApplication->middle_name }}
                                                     @endif
                                                 </td>
-                                                <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                                <td class="px-3 py-4 text-xs text-gray-500 whitespace-nowrap">
                                                     @if ($application->user->applicant_type == 'Freshmen')
                                                         {{ $application->user->freshmenApplication->first_choice }}
                                                     @else
                                                         {{ $application->user->transfereeApplication->program_choice }},
                                                     @endif
                                                 </td>
-                                                <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                                <td class="px-3 py-4 text-xs text-gray-500 whitespace-nowrap">
                                                     @if ($application->overall_score == '520')
                                                         <span
                                                             class="inline-flex text-xs items-center px-3.5 py-1 rounded-full  font-medium bg-gray-100 text-gray-800">
@@ -108,8 +110,6 @@
 
                                             </tr>
                                         @endforeach
-
-                                        <!-- More people... -->
                                     </tbody>
                                 </table>
                             </div>
