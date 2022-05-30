@@ -52,7 +52,7 @@ class ReportResultDashboard extends Component
 
     public function mount()
     {
-        this->getPassersScores();
+        $this->getPassersScores();
         $this->getPassers();
     }
     public function render()
