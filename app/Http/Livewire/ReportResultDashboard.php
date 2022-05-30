@@ -48,8 +48,16 @@ class ReportResultDashboard extends Component
             }
         }
     }
+
+
+    public function mount()
+    {
+       
+        $this->getPassers();
+    }
     public function render()
     {
+         $this->passersScores = Result::where('overall_score','>=','520')->get();
         $this->passersScores = Result::where('overall_score','>=','520')->get();
         if ($this->per_campus == "") {
             $this->applications = $this->getApplications();
