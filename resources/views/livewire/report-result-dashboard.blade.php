@@ -11,7 +11,7 @@
                 <x-native-select wire:model="first_choice">
                     <option value="">All Program</option>
                     @foreach (\App\Models\Program::where('campus_id', $per_campus)->get() as $program)
-                        <option value="{{ $program->id }}">{{ $program->name }}</option>
+                        <option value="{{ $program->name }}">{{ $program->name }}</option>
                     @endforeach
                 </x-native-select>
                 <x-button icon="printer" />

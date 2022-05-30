@@ -44,10 +44,10 @@ class ReportResultDashboard extends Component
             if ($this->first_choice == "") {
                 $this->applications = Permit::whereIn('permit_number', $this->passers)
                                 ->whereHas('user.freshmenApplication', function($query) {
-                                    $query->where('first_choice_campus','like',$this->per_campus);
+                                    $query->where('first_choice_campus',$this->per_campus);
                                 })
                                 ->orWhereHas('user.transfereeApplication', function($query) {
-                                    $query->where('program_choice_campus','like',$this->per_campus);
+                                    $query->where('program_choice_campus',$this->per_campus);
                                 })
                         ->with(['user.freshmenApplication','user.transfereeApplication'])->get();
             }else{
