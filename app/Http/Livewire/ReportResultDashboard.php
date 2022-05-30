@@ -43,7 +43,7 @@ class ReportResultDashboard extends Component
         $passers_scores=[];
         foreach($passers as $passer){
             if ($passer->examinee_id == $examinee_id){
-                $passers_scores[]=$passer;
+                $passers_scores=$passer;
                  return $passers_scores;
             }
         }
