@@ -101,15 +101,7 @@
                                                         @php
                                                             $scores = $this->getScore($application->permit_number);
                                                         @endphp
-                                                        @if ($scores->overall_score == '520')
-                                                            Waiting List |
-                                                        @endif
-                                                        @if ($scores->overall_score >= '526')
-                                                            Qualified for Non-Board Courses |
-                                                        @endif
-                                                        @if ($scores->overall_score >= '576')
-                                                            Qualified for Board Courses
-                                                        @endif
+                                                        @dump($scores)
                                                     </td>
                                                 </tr>
                                             @endforeach
