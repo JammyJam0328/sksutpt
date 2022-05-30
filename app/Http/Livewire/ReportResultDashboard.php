@@ -31,6 +31,25 @@ class ReportResultDashboard extends Component
                         ->with(['user.freshmenApplication','user.TransfereeApplication'])->get();
                         return $applications;
     }
+
+    public function getPassersScores()
+    {
+       return Result::where('overall_score','>=','520')->get();
+    }
+
+    public function getScore($examinee_id)
+    {
+        $passers[]=$this->getPassersScores();
+        $passers_scores=[];
+        foreach($passers as $passer){
+            if ($passer->examinee_id == $examinee_id){
+                $passers_scores[]=$passer;
+                 return $passers_scores;
+            }
+        }
+    }
+
+
     public function mount()
     {
         $this->getPassers();

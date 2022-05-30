@@ -88,26 +88,28 @@
                                                     @endif
                                                 </td>
                                                 <td class="px-3 py-4 text-xs text-gray-500 whitespace-nowrap">
-                                                    @if ($application->overall_score == '520')
+                                                    @php
+                                                        $scores = $this->getScore($application->permit_number);
+                                                    @endphp
+                                                    @if ($scores->overall_score == '520')
                                                         <span
                                                             class="inline-flex text-xs items-center px-3.5 py-1 rounded-full  font-medium bg-gray-100 text-gray-800">
                                                             Waiting List
                                                         </span>
                                                     @endif
-                                                    @if ($application->overall_score >= '526')
+                                                    @if ($scores->overall_score >= '526')
                                                         <span
                                                             class="inline-flex text-xs items-center px-3.5 py-1 rounded-full  font-medium bg-yellow-100 text-yellow-800">
                                                             Qualified for Non-Board Courses
                                                         </span>
                                                     @endif
-                                                    @if ($application->overall_score >= '576')
+                                                    @if ($scores->overall_score >= '576')
                                                         <span
                                                             class="inline-flex items-center px-3.5 py-1 rounded-full  font-medium bg-green-100 text-green-800">
                                                             Qualified for Board Courses
                                                         </span>
                                                     @endif
                                                 </td>
-
                                             </tr>
                                         @endforeach
                                     </tbody>
