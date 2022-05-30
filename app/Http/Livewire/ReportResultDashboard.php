@@ -39,7 +39,7 @@ class ReportResultDashboard extends Component
 
     public function getScore($examinee_id)
     {
-        $passers[]=$this->getPassersScores();
+        $passers=$this->getPassersScores();
         $passers_scores=[];
         foreach($passers as $passer){
             if ($passer->examinee_id == $examinee_id){
