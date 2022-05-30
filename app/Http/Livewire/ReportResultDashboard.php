@@ -21,10 +21,6 @@ class ReportResultDashboard extends Component
     public $applications=[];
     public $passers =[];
     
-    public function getPassers()
-    {
-        $this->passers = Result::where('overall_score','>=','520')->pluck('examinee_id')->toArray();
-    }
     public function getApplications()
     {
         $applications = Permit::whereIn('permit_number', $this->passers)
@@ -32,10 +28,7 @@ class ReportResultDashboard extends Component
                         return $applications;
     }
     public $passersScores=[];
-    public function getPassersScores()
-    {
-      
-    }
+
 
     public function getScore($examinee_id)
     {
@@ -50,12 +43,10 @@ class ReportResultDashboard extends Component
     public function mount()
     {
         $this->passersScores = Result::where('overall_score','>=','520')->get();
-        $this->getPassers();
+         $this->passers = $this->passersScores->pluck('examinee_id')->toArray();
     }
     public function render()
     {
-       
-        $this->passersScores = Result::where('overall_score','>=','520')->get();
         if ($this->per_campus == "") {
             $this->applications = $this->getApplications();
         }else{
