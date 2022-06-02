@@ -77,7 +77,7 @@
                                             @foreach ($applications as $application)
                                                 <tr>
                                                     <td
-                                                        class="py-1 uppercase  text-xs font-medium  text-gray-900 whitespace-nowrap ">
+                                                        class="py-1 sm:pl-6 uppercase  text-xs font-medium  text-gray-900 whitespace-nowrap ">
                                                         @if ($application->user->applicant_type == 'Freshmen')
                                                             <div class="grid space-y-1">
                                                                 <h1>Remarks :
