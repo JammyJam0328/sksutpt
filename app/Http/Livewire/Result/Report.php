@@ -33,7 +33,7 @@ class Report extends Component
 
     public function getScore($examinee_id)
     {
-        foreach($this->passersScores as $passer){
+        foreach($this->passers_examinee_ids as $passer){
             if ($passer->examinee_id == $examinee_id){
                  return $passer->overall_score;
             }
