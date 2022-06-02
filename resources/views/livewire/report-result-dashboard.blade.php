@@ -10,7 +10,7 @@
     <x-card title="Count : {{ count($applications) }}">
         <x-slot name="action">
             <div class="flex space-x-3">
-                <div class="flex justify-center items-center pr-3">
+                <div class="flex items-center justify-center pr-3">
                     <div wire:loading>
                         <span class="animate-bounce">Loading ...</span>
                     </div>
@@ -73,11 +73,11 @@
 
                                             </tr>
                                         </thead>
-                                        <tbody class="bg-white divide-y divide-gray-200 text-xs">
+                                        <tbody class="text-xs bg-white divide-y divide-gray-200">
                                             @foreach ($applications as $application)
                                                 <tr>
                                                     <td
-                                                        class="py-1 sm:pl-6 uppercase  text-xs font-medium  text-gray-900 whitespace-nowrap ">
+                                                        class="py-2.5 sm:pl-6  uppercase  text-xs font-medium  text-gray-900 whitespace-nowrap ">
                                                         @if ($application->user->applicant_type == 'Freshmen')
                                                             <div class="grid space-y-1">
                                                                 <h1>Remarks :
@@ -95,6 +95,9 @@
                                                                     {{ $application->user->freshmenApplication->last_name }},
                                                                     {{ $application->user->freshmenApplication->first_name }}
                                                                     {{ $application->user->freshmenApplication->middle_name }}
+                                                                </h1>
+                                                                <h1>Program :
+                                                                    {{ $application->user->freshmenApplication->first_choice }}
                                                                 </h1>
                                                                 <h1>Program :
                                                                     {{ $application->user->freshmenApplication->first_choice }}

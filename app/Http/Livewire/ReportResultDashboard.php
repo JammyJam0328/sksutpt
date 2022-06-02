@@ -43,7 +43,7 @@ class ReportResultDashboard extends Component
     public function mount()
     {
         $this->passersScores = Result::where('overall_score','>=','520')->get();
-         $this->passers = $this->passersScores->pluck('examinee_id')->toArray();
+        $this->passers = $this->passersScores->pluck('examinee_id')->toArray();
     }
     public function render()
     {

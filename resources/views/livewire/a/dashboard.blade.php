@@ -65,6 +65,5 @@
         </div>
     </x-card>
     <div class="mt-10">
-        @livewire('report-result-dashboard')
     </div>
 </x-admin-page-layout>
