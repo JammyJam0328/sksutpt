@@ -55,67 +55,65 @@
                         </h1>
                     </div>
                 </div>
-
             </div>
-            <div class="mt-4">
-                <div class="flex justify-center">
+            <div>
+                <div>
                     <div class="flex flex-col">
                         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                            <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8 text-xs">
-                                <div>
-                                    <table>
-                                        <thead>
+                            <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                                <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+                                    <table class="min-w-full divide-y divide-gray-300">
+                                        <thead class="bg-gray-50">
                                             <tr>
-                                                <th scope="col">
+                                                <th scope="col"
+                                                    class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
                                                     Details
                                                 </th>
-                                                <th scope="col">
+
+                                                <th scope="col"
+                                                    class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                                     Remarks
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody class="bg-white divide-y divide-gray-200 text-xs">
                                             @foreach ($applications as $application)
                                                 <tr>
-                                                    <td>
+                                                    <td
+                                                        class="py-1 uppercase  text-xs font-medium  text-gray-900 whitespace-nowrap ">
                                                         @if ($application->user->applicant_type == 'Freshmen')
-                                                            <div class="flex space-x-2 items-center">
-                                                                <h1> Name :</h1>
-                                                                <h1> {{ $application->user->freshmenApplication->last_name }},
+                                                            <div class="grid space-y-1">
+                                                                <h1>Name :
+                                                                    {{ $application->user->freshmenApplication->last_name }},
                                                                     {{ $application->user->freshmenApplication->first_name }}
                                                                     {{ $application->user->freshmenApplication->middle_name }}
                                                                 </h1>
-                                                            </div>
-                                                            <div class="flex space-x-2 items-center">
-                                                                <h1> Program :</h1>
-                                                                <h1> {{ $application->user->freshmenApplication->first_choice }}
+                                                                <h1>Program :
+                                                                    {{ $application->user->freshmenApplication->first_choice }}
                                                                 </h1>
                                                             </div>
                                                         @else
-                                                            <div class="flex space-x-2 items-center">
-                                                                <h1> Name :</h1>
-                                                                <h1> {{ $application->user->transfereeApplication->last_name }},
+                                                            <div class="grid space-y-1">
+                                                                <h1>Name :
+                                                                    {{ $application->user->transfereeApplication->last_name }},
                                                                     {{ $application->user->transfereeApplication->first_name }}
                                                                     {{ $application->user->transfereeApplication->middle_name }}
                                                                 </h1>
-                                                            </div>
-                                                            <div class="flex space-x-2 items-center">
-                                                                <h1> Program :</h1>
-                                                                <h1> {{ $application->user->transfereeApplication->program_choice }},
+                                                                <h1>Program :
+                                                                    {{ $application->user->transfereeApplication->program_choice }},
                                                                 </h1>
                                                             </div>
                                                         @endif
                                                     </td>
-                                                    <td>
-                                                        ({{ $this->getScore($application->permit_number) }})
+                                                    <td class="py-1 text-xs  text-gray-500 whitespace-nowrap">
                                                         @if ($this->getScore($application->permit_number) == '520')
-                                                            Waiting List |
+                                                            WL |
                                                         @endif
                                                         @if ($this->getScore($application->permit_number) >= '526')
-                                                            Qualified for Non-Board Courses |
+                                                            QNBC
                                                         @endif
                                                         @if ($this->getScore($application->permit_number) >= '576')
-                                                            Qualified for Board Courses
+                                                            |QBC
                                                         @endif
                                                     </td>
                                                 </tr>
