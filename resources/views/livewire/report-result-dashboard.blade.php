@@ -67,10 +67,7 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">
-                                                    Full Name
-                                                </th>
-                                                <th scope="col">
-                                                    Program
+                                                    Details
                                                 </th>
                                                 <th scope="col">
                                                     Remarks
@@ -82,23 +79,35 @@
                                                 <tr>
                                                     <td>
                                                         @if ($application->user->applicant_type == 'Freshmen')
-                                                            {{ $application->user->freshmenApplication->last_name }},
-                                                            {{ $application->user->freshmenApplication->first_name }}
-                                                            {{ $application->user->freshmenApplication->middle_name }}
+                                                            <div class="flex space-x-2 items-center">
+                                                                <h1> Name :</h1>
+                                                                <h1> {{ $application->user->freshmenApplication->last_name }},
+                                                                    {{ $application->user->freshmenApplication->first_name }}
+                                                                    {{ $application->user->freshmenApplication->middle_name }}
+                                                                </h1>
+                                                            </div>
+                                                            <div class="flex space-x-2 items-center">
+                                                                <h1> Program :</h1>
+                                                                <h1> {{ $application->user->freshmenApplication->first_choice }}
+                                                                </h1>
+                                                            </div>
                                                         @else
-                                                            {{ $application->user->transfereeApplication->last_name }},
-                                                            {{ $application->user->transfereeApplication->first_name }}
-                                                            {{ $application->user->transfereeApplication->middle_name }}
+                                                            <div class="flex space-x-2 items-center">
+                                                                <h1> Name :</h1>
+                                                                <h1> {{ $application->user->transfereeApplication->last_name }},
+                                                                    {{ $application->user->transfereeApplication->first_name }}
+                                                                    {{ $application->user->transfereeApplication->middle_name }}
+                                                                </h1>
+                                                            </div>
+                                                            <div class="flex space-x-2 items-center">
+                                                                <h1> Program :</h1>
+                                                                <h1> {{ $application->user->transfereeApplication->program_choice }},
+                                                                </h1>
+                                                            </div>
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        @if ($application->user->applicant_type == 'Freshmen')
-                                                            {{ $application->user->freshmenApplication->first_choice }}
-                                                        @else
-                                                            {{ $application->user->transfereeApplication->program_choice }},
-                                                        @endif
-                                                    </td>
-                                                    <td>
+                                                        ({{ $this->getScore($application->permit_number) }})
                                                         @if ($this->getScore($application->permit_number) == '520')
                                                             Waiting List |
                                                         @endif
