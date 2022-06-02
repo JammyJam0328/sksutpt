@@ -30,4 +30,13 @@ class Report extends Component
     {
         return view('livewire.result.report');
     }
+
+    public function getScore($examinee_id)
+    {
+        foreach($this->passersScores as $passer){
+            if ($passer->examinee_id == $examinee_id){
+                 return $passer->overall_score;
+            }
+        }
+    }
 }
