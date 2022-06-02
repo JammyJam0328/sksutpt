@@ -65,5 +65,9 @@
         </div>
     </x-card>
     <div class="mt-10">
+        <x-button href="{{ route('admin.report.result') }}"
+            primary>
+            Result Report
+        </x-button>
     </div>
 </x-admin-page-layout>
