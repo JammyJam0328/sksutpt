@@ -105,7 +105,7 @@
                                                             </div>
                                                         @endif
                                                     </td>
-                                                    <td class="py-1 text-xs  text-gray-500 whitespace-nowrap">
+                                                    <td class="py-1 text-xs text-left text-gray-500 whitespace-nowrap">
                                                         @if ($this->getScore($application->permit_number) == '520')
                                                             WL |
                                                         @endif
