@@ -58,33 +58,29 @@
 
             </div>
             <div class="mt-4">
-                <div>
+                <div class="flex justify-center">
                     <div class="flex flex-col">
                         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                             <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                                <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
-                                    <table class="min-w-full divide-y divide-gray-300">
-                                        <thead class="bg-gray-50">
+                                <div>
+                                    <table>
+                                        <thead>
                                             <tr>
-                                                <th scope="col"
-                                                    class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                                                <th scope="col">
                                                     Full Name
                                                 </th>
-                                                <th scope="col"
-                                                    class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                                <th scope="col">
                                                     Program
                                                 </th>
-                                                <th scope="col"
-                                                    class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                                <th scope="col">
                                                     Remarks
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody class="bg-white divide-y divide-gray-200">
+                                        <tbody>
                                             @foreach ($applications as $application)
                                                 <tr>
-                                                    <td
-                                                        class="py-4 uppercase pl-4 pr-3 text-xs font-medium text-left text-gray-900 whitespace-nowrap ">
+                                                    <td>
                                                         @if ($application->user->applicant_type == 'Freshmen')
                                                             {{ $application->user->freshmenApplication->last_name }},
                                                             {{ $application->user->freshmenApplication->first_name }}
@@ -95,14 +91,14 @@
                                                             {{ $application->user->transfereeApplication->middle_name }}
                                                         @endif
                                                     </td>
-                                                    <td class="py-4 text-xs text-left text-gray-500 whitespace-nowrap">
+                                                    <td>
                                                         @if ($application->user->applicant_type == 'Freshmen')
                                                             {{ $application->user->freshmenApplication->first_choice }}
                                                         @else
                                                             {{ $application->user->transfereeApplication->program_choice }},
                                                         @endif
                                                     </td>
-                                                    <td class="py-2 text-xs text-left text-gray-500 whitespace-nowrap">
+                                                    <td>
                                                         @if ($this->getScore($application->permit_number) == '520')
                                                             Waiting List |
                                                         @endif
