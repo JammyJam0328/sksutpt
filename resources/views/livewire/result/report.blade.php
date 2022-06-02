@@ -16,10 +16,6 @@
                                             class="px-3 py-3 text-xs font-medium tracking-wide text-left text-gray-500 uppercase">
                                             Program
                                         </th>
-                                        <th scope="col"
-                                            class="px-3 py-3 text-xs font-medium tracking-wide text-left text-gray-500 uppercase">
-                                            Remark
-                                        </th>
 
                                     </tr>
                                 </thead>
@@ -29,6 +25,18 @@
                                             <td
                                                 class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 divide-y divide-gray-200 sm:pl-6">
                                                 @if ($application->user->applicant_type == 'Freshmen')
+                                                    <div class="w-32 break-words">
+                                                        Remarks :
+                                                        @if ($this->getScore($application->permit_number) == '520')
+                                                            (WL)
+                                                        @endif
+                                                        @if ($this->getScore($application->permit_number) >= '526')
+                                                            (QNBC)
+                                                        @endif
+                                                        @if ($this->getScore($application->permit_number) >= '576')
+                                                            (QBC)
+                                                        @endif
+                                                    </div>
                                                     <div class="w-32 break-words">
                                                         Name :
                                                         {{ $application->user->freshmenApplication->last_name }},
@@ -48,6 +56,18 @@
                                                         {{ $application->user->freshmenApplication->school_last_attended }}
                                                     </div>
                                                 @else
+                                                    <div class="w-32 break-words">
+                                                        Remarks :
+                                                        @if ($this->getScore($application->permit_number) == '520')
+                                                            (WL)
+                                                        @endif
+                                                        @if ($this->getScore($application->permit_number) >= '526')
+                                                            (QNBC)
+                                                        @endif
+                                                        @if ($this->getScore($application->permit_number) >= '576')
+                                                            (QBC)
+                                                        @endif
+                                                    </div>
                                                     <div class="w-32 break-words">
                                                         Name :
                                                         {{ $application->user->transfereeApplication->last_name }},
@@ -78,17 +98,7 @@
                                                     @endif
                                                 </div>
                                             </td>
-                                            <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                                @if ($this->getScore($application->permit_number) == '520')
-                                                    (WL)
-                                                @endif
-                                                @if ($this->getScore($application->permit_number) >= '526')
-                                                    (QNBC)
-                                                @endif
-                                                @if ($this->getScore($application->permit_number) >= '576')
-                                                    (QBC)
-                                                @endif
-                                            </td>
+
                                         </tr>
                                     @endforeach
                                 </tbody>
