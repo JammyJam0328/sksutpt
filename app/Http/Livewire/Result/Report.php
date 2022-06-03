@@ -44,7 +44,7 @@ class Report extends Component
     {
         $count = 0;
         foreach ($this->applications as $application) {
-            if ($application->user->application_type == 'Freshmen'){
+            if ($application->user->applicant_type == 'Freshmen'){
                 $freshmen_application = $application->user->freshmenApplication;
                 if ($freshmen_application->first_choice_campus == $campus_id){
                     $count++;
