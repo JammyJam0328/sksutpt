@@ -1531,6 +1531,9 @@ select {
 .w-14 {
   width: 3.5rem;
 }
+.w-32 {
+  width: 8rem;
+}
 .w-56 {
   width: 14rem;
 }
@@ -1695,22 +1698,6 @@ select {
   -webkit-animation: spin 1s linear infinite;
           animation: spin 1s linear infinite;
 }
-@-webkit-keyframes pulse {
-
-  50% {
-    opacity: .5;
-  }
-}
-@keyframes pulse {
-
-  50% {
-    opacity: .5;
-  }
-}
-.animate-pulse {
-  -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
 @-webkit-keyframes bounce {
 
   0%, 100% {
@@ -1742,6 +1729,22 @@ select {
 .animate-bounce {
   -webkit-animation: bounce 1s infinite;
           animation: bounce 1s infinite;
+}
+@-webkit-keyframes pulse {
+
+  50% {
+    opacity: .5;
+  }
+}
+@keyframes pulse {
+
+  50% {
+    opacity: .5;
+  }
+}
+.animate-pulse {
+  -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 .cursor-default {
   cursor: default;
@@ -2728,6 +2731,9 @@ select {
 .pt-0 {
   padding-top: 0px;
 }
+.pr-3 {
+  padding-right: 0.75rem;
+}
 .pl-2\.5 {
   padding-left: 0.625rem;
 }
@@ -2745,9 +2751,6 @@ select {
 }
 .pr-1 {
   padding-right: 0.25rem;
-}
-.pr-3 {
-  padding-right: 0.75rem;
 }
 .pl-5 {
   padding-left: 1.25rem;
@@ -2859,11 +2862,11 @@ select {
 .tracking-wider {
   letter-spacing: 0.05em;
 }
-.tracking-tight {
-  letter-spacing: -0.025em;
-}
 .tracking-wide {
   letter-spacing: 0.025em;
+}
+.tracking-tight {
+  letter-spacing: -0.025em;
 }
 .text-gray-500 {
   --tw-text-opacity: 1;
@@ -4055,6 +4058,10 @@ select {
 .hover\:bg-rose-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(225 29 72 / var(--tw-bg-opacity));
+}
+.hover\:bg-indigo-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(67 56 202 / var(--tw-bg-opacity));
 }
 .hover\:bg-opacity-75:hover {
   --tw-bg-opacity: 0.75;
@@ -5415,6 +5422,10 @@ select {
     width: 1.5rem;
   }
 
+  .sm\:w-auto {
+    width: auto;
+  }
+
   .sm\:max-w-md {
     max-width: 28rem;
   }
@@ -5678,6 +5689,10 @@ select {
     padding-top: 1rem;
   }
 
+  .sm\:pl-6 {
+    padding-left: 1.5rem;
+  }
+
   .sm\:pb-24 {
     padding-bottom: 6rem;
   }
@@ -5688,10 +5703,6 @@ select {
 
   .sm\:pt-3 {
     padding-top: 0.75rem;
-  }
-
-  .sm\:pl-6 {
-    padding-left: 1.5rem;
   }
 
   .sm\:pr-6 {

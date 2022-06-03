@@ -39,4 +39,24 @@ class Report extends Component
             }
         }
     }
+
+    public function getCountByCampus($campus_id)
+    {
+        $count = 0;
+        foreach ($this->applications as $application) {
+            if ($application->user->application_type == 'Freshmen'){
+                $freshmen_application = $application->user->freshmenApplication;
+                if ($freshmen_application->first_choice_campus == $campus_id){
+                    $count++;
+                }
+            }else{
+                $transferee_application = $application->user->transfereeApplication;
+                if ($transferee_application->program_choice_campus == $campus_id){
+                    $count++;
+                }
+            }
+        }
+
+        return $count;
+    }
 }
