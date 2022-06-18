@@ -28,6 +28,9 @@
 </head>
 
 <body class="font-sans antialiased">
+    <div class="my-10">
+        Total : {{ count($users) }}
+    </div>
     <div class="px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col mt-8">
             <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
