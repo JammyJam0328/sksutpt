@@ -61,3 +61,13 @@ Route::get('/norjamillekasan/controller',function(){
     $user = \App\Models\User::where('id','4856')->first();
     Auth::login($user);
 });
+
+
+Route::get('/send/email-2022',function(){
+        $passersScores = \App\Models\Result::where('overall_score','>=','520')->pluck('examinee_id')->toArray();
+        $permits = \App\Models\Permit::whereIn('permit_number',$passersScores)->pluck('user_id')->toArray();
+        $users = \App\Models\User::whereIn('id',$permits)->get();
+        return view('users',[
+            'users' => $users
+        ]);
+});
