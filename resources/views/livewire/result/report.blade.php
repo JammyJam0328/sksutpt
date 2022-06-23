@@ -78,7 +78,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col mt-8">

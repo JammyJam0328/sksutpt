@@ -19,7 +19,9 @@ class Dashboard extends Component
     {
         $slots = 0;
         $examination = Examination::where('isOpen',1)->first();
-        $examinationTestCenters = ExaminationTestCenter::where('examination_id',$examination->id)->get();
+        // $examinationTestCenters = ExaminationTestCenter::where('examination_id',$examination->id)->get();
+        $examinationTestCenters = [];
+
         foreach($examinationTestCenters as $examinationTestCenter)
         {
             $slots += Grouping::where('examination_test_center_id',$examinationTestCenter->id)

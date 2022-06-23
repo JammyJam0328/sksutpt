@@ -64,10 +64,14 @@
             </x-dash-card>
         </div>
     </x-card>
-    <div class="mt-10">
+    <div class="mt-10 space-y-5">
         <x-button href="{{ route('admin.report.result') }}"
             primary>
             Result Report
+        </x-button>
+        <x-button href="{{ route('admin.program.report') }}"
+            primary>
+            Per Program Report
         </x-button>
     </div>
 </x-admin-page-layout>

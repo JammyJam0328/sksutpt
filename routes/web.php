@@ -41,6 +41,8 @@ Route::prefix('admin')->middleware(['auth:sanctum', 'verified','admin'])->group(
     Route::get('/manage/payments/denied',\App\Http\Livewire\A\DeniedPayments::class)->name('admin.manage.denied-payments');
     Route::get('/generate/reports',\App\Http\Livewire\A\GenerateReports::class)->name('admin.generate.reports');
     Route::get('/report/result',\App\Http\Livewire\Result\Report::class)->name('admin.report.result');
+    Route::get('/program/report',\App\Http\Livewire\PerProgramReport::class)->name('admin.program.report');
+
 
 
     // 
