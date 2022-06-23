@@ -39,7 +39,7 @@
                                                 {{ $permit->user->transfereeApplication->last_name }}
                                             @endif
                                         </td>
-                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Front-end
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                             {{ $this->getScore($permit->permit_number) }}
                                         </td>
                                     </tr>
