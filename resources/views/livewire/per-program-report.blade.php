@@ -28,7 +28,7 @@
                                 @forelse ($permits as $permit)
                                     <tr>
                                         <td
-                                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                                            class="whitespace-nowrap py-4 pl-4 uppercase pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                                             @if ($permit->user->freshmenApplication)
                                                 {{ $permit->user->freshmenApplication->first_name }}
                                                 {{ $permit->user->freshmenApplication->middle_name }}
